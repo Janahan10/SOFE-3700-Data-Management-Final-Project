@@ -1,3 +1,131 @@
-<html>
-    
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- SCRIPTS -->
+    <script src="test.js"></script>
+    <link rel="stylesheet" href="styles.css">
+
+    <title>Rental Form</title>
+</head>
+
+<body>
+    <div class="jumbotron text-center">
+        <h1>Insert Project Name Here</h1>
+        <p>The better way to rent a car!</p>
+    </div>
+
+    <!-- PLACE HOLDER START-->
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>car 1</h3>
+                <p>Lorem ipsum dolor..</p>
+                <button onclick="on()">Rent</button>
+            </div>
+            <div class="col-sm-4">
+                <h3>car 2</h3>
+                <p>Lorem ipsum dolor..</p>
+                <button>Rent</button>
+            </div>
+            <div class="col-sm-4">
+                <h3>car 3</h3>
+                <p>Lorem ipsum dolor..</p>
+                <button>Rent</button>
+            </div>
+        </div>
+    </div>
+    <!-- PLACE HOLDER END -->
+    <!--onclick="off() -->
+    <div id="overlay">
+        <div id="form-container" class="container">
+            <h1 id="form-title">Registration Form</h1>
+
+            <form>
+                <h2 class="subheader"> Personal Information </h2>
+                <hr>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail4">First Name</label>
+                        <input type="text" class="form-control" id="fname" placeholder="First Name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputPassword4">Last Name</label>
+                        <input type="text" class="form-control" id="lname" placeholder="Last Name">
+                    </div>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" class="form-control" id="phone" placeholder="Phone">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="phone">Drivers License</label>
+                    <input type="text" class="form-control" id="dNo" placeholder="Drivers License">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="phone">Date of Birth</label>
+                    <input type="date" class="form-control" id="dob">
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="inputAddress">Address</label>
+                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                </div>
+                <div class="form-group col-md-12">
+                    <label for="inputAddress2">Address 2</label>
+                    <input type="text" class="form-control" id="inputAddress2"
+                        placeholder="Apartment, studio, or floor">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputCity">City</label>
+                        <input type="text" class="form-control" id="inputCity" placeholder="City">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label for="inputState">State</label>
+                        <select id="inputState" class="form-control">
+                            <option selected>Choose...</option>
+                            <option>...</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="inputZip">Postal Code</label>
+                        <input type="text" class="form-control" id="inputZip" placeholder="Postal Code">
+                    </div>
+                </div>
+                <h2> Account Information </h2>
+                <hr>
+                <div class="form-group col-md-6">
+                    <label for="inputZip">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputZip">Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Username">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputZip">Password</label>
+                    <input type="password" class="form-control" id="Password" placeholder="Password">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputZip">Repeat Password</label>
+                    <input type="password" class="form-control" id="Password" placeholder="Repeat Password">
+                </div>
+                <div class="form-group col-md-6">
+                    <button type="submit" class="btn btn-primary">Book</button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+
+
+
+</body>
+
 </html>
