@@ -10,9 +10,10 @@
     background-color: rgba(0,0,0,0.5); /* Black background with opacity */
     z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
     cursor: pointer; /* Add a pointer on hover */
+    overflow-y: scroll;
 }
 
-#contianer{
+#container{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -30,6 +31,16 @@
     text-align: center;
 }
 
+#subheader {
+    text-align: center;
+}
+
 .top200 {
     margin-top: 200px;
 }
+
+.bottom20 {
+    margin-bottom: 50px;
+}
+
+.top-buffer { margin-top:20px; }
