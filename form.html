@@ -48,35 +48,54 @@
             <a href="javascript:void(0)" class="closebtn" onclick="off()">&times;</a>
             <h1 id="form-title">Registration Form</h1>
 
-            <form>
+            <form class="needs-validation" novalidate>
                 <h2 class="subheader"> Personal Information </h2>
                 <hr>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputEmail4">First Name</label>
-                        <input type="text" class="form-control" id="fname" placeholder="First Name">
+                        <input type="text" class="form-control" id="fname" placeholder="First Name" required>
+                        <div class="invalid-feedback">
+                            Please provide first name.
+                        </div>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="inputPassword4">Last Name</label>
-                        <input type="text" class="form-control" id="lname" placeholder="Last Name">
+                        <input type="text" class="form-control" id="lname" placeholder="Last Name" required>
+                        <div class="invalid-feedback">
+                            Please provide last name.
+                        </div>
                     </div>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="phone">Phone Number</label>
-                    <input type="tel" class="form-control" id="phone" placeholder="Phone">
+                    <input type="tel" class="form-control" id="phone" placeholder="Phone" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid phone number.
+                    </div>
                 </div>
                 <div class="form-group col-md-4">
-                    <label for="phone">Drivers License</label>
-                    <input type="text" class="form-control" id="dNo" placeholder="Drivers License">
+                    <label for="phone">Drivers License No.</label>
+                    <input type="text" class="form-control" id="dNo" placeholder="Drivers License" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid drivers license number.
+                    </div>
                 </div>
                 <div class="form-group col-md-4">
                     <label for="phone">Date of Birth</label>
-                    <input type="date" class="form-control" id="dob">
+                    <input type="date" class="form-control" id="dob" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid date of birth.
+                    </div>
                 </div>
                 <div class="form-group col-md-12">
                     <label for="inputAddress">Address</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid address.
+                    </div>
                 </div>
+
                 <div class="form-group col-md-12">
                     <label for="inputAddress2">Address 2</label>
                     <input type="text" class="form-control" id="inputAddress2"
@@ -85,42 +104,93 @@
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="inputCity">City</label>
-                        <input type="text" class="form-control" id="inputCity" placeholder="City">
+                        <input type="text" class="form-control" id="inputCity" placeholder="City" required>
+                        <div class="invalid-feedback">
+                            Please provide a valid city.
+                        </div>
                     </div>
+
                     <div class="form-group col-md-4">
-                        <label for="inputState">State</label>
-                        <select id="inputState" class="form-control">
-                            <option selected>Choose...</option>
-                            <option>...</option>
+                        <label for="inputState">State/Province</label>
+                        <select id="inputState" class="form-control" required>
+                            <option>Choose...</option>
+                            <option>British Columbia</option>
+                            <option>Alberta</option>
+                            <option>British Columbia</option>
+                            <option>Saskatchewan</option>
+                            <option>Manitoba</option>
+                            <option>Ontario</option>
+                            <option>Quebec</option>
+                            <option>Newfoundland</option>
+                            <option>Yukon</option>
+                            <option>North West Territories</option>
+                            <option>Nunavut</option>
                         </select>
+                        <div class="invalid-feedback">
+                            Please provide a valid state/province.
+                        </div>
                     </div>
                     <div class="form-group col-md-2">
                         <label for="inputZip">Postal Code</label>
-                        <input type="text" class="form-control" id="inputZip" placeholder="Postal Code">
+                        <input type="text" class="form-control" id="inputZip" placeholder="Postal Code" required>
+                        <div class="invalid-feedback">
+                            Please provide a valid postal code.
+                        </div>
                     </div>
                 </div>
                 <h2> Account Information </h2>
                 <hr>
                 <div class="form-group col-md-6">
                     <label for="inputZip">Email</label>
-                    <input type="email" class="form-control" id="email" placeholder="Email">
+                    <input type="email" class="form-control" id="email" placeholder="Email" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid email.
+                    </div>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputZip">Username</label>
-                    <input type="text" class="form-control" id="username" placeholder="Username">
+                    <input type="text" class="form-control" id="username" placeholder="Username" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid username.
+                    </div>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputZip">Password</label>
-                    <input type="password" class="form-control" id="Password" placeholder="Password">
+                    <input type="password" class="form-control" id="Password" placeholder="Password" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid passowrd.
+                    </div>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputZip">Repeat Password</label>
-                    <input type="password" class="form-control" id="Password" placeholder="Repeat Password">
+                    <input type="password" class="form-control" id="Password" placeholder="Repeat Password" required>
+                    <div class="invalid-feedback">
+                        Please provide a valid password.
+                    </div>
                 </div>
-                <div class="form-group col-md-6">
-                    <button type="submit" class="btn btn-primary">Book</button>
-                </div>
-                
+
+                <button type="submit" class="btn btn-primary">Submit form</button>
+
+                <script>
+                    (function () {
+                        'use strict';
+                        window.addEventListener('load', function () {
+
+                            var forms = document.getElementsByClassName('needs-validation');
+
+                            var validation = Array.prototype.filter.call(forms, function (form) {
+                                form.addEventListener('submit', function (event) {
+                                    if (form.checkValidity() === false) {
+                                        event.preventDefault();
+                                        event.stopPropagation();
+                                    }
+                                    form.classList.add('was-validated');
+                                }, false);
+                            });
+                        }, false);
+                    })();
+                </script>
+
             </form>
         </div>
     </div>
