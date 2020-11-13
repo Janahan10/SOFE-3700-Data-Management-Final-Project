@@ -11,18 +11,9 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
+    // Request for all the data about the locations
     $sql = "SELECT * FROM location";
     $result = $conn->query($sql);
-
-    // if ($result->num_rows > 0) {
-    // // output data of each row
-    //     while($row = $result->fetch_assoc()) {
-    //         echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
-    //     }
-    // } else {
-    //     echo "0 results";
-    // }
-    // $conn->close();
 ?>
 
 <html>
@@ -61,7 +52,7 @@
                     <div class="col-md-12">
                         <label for="inputPickupLoc" class="col-md-10 col-form-label">Pick a Location</label>
                         <select id="inputPickupLoc" class="form-control">
-                            <option selected>Choose...</option>
+                            <option selected>Choose a location</option>
                             <?php
                                 if ($result->num_rows > 0) {
                                     // output data of each row
