@@ -16,6 +16,7 @@
     $result = $conn->query($sql);
 ?>
 
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -47,11 +48,11 @@
             <div class="text-center mx-3 my-3">
                 <h1>Book Your Rental Today</h1>
             </div>
-            <form class="container px-3 py-3" action="#" method="post">
+            <form class="container px-3 py-3" action="test.php" method="post">
                 <div class="form-group row">
                     <div class="col-md-12">
                         <label for="inputPickupLoc" class="col-md-10 col-form-label">Pick a Location</label>
-                        <select id="inputPickupLoc" class="form-control">
+                        <select id="inputPickupLoc" class="form-control" name="pickupLoc">
                             <option selected>Choose a location</option>
                             <?php
                                 if ($result->num_rows > 0) {
@@ -70,11 +71,11 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-md-3">
-                        <input type="date" class="form-control" id="inputPickupDate">
+                        <input type="date" class="form-control" id="inputPickupDate" name="pickDate">
                         <label for="inputPickupDate" class="col-md-12 col-form-label">Pickup Date</label>
                     </div>
                     <div class="col-md-3">
-                        <input type="date" class="form-control" id="inputDropDate">
+                        <input type="date" class="form-control" id="inputDropDate" name="dropDate">
                         <label for="inputDropDate" class="col-md-12 col-form-label">Dropoff Date</label>
                     </div>
                 </div>
