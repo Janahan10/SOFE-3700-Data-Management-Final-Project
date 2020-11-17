@@ -1,6 +1,6 @@
 #overlay {
-    margin-top: 3%;
-    position: fixed; /* Sit on top of the page content */
+    margin-top: 3.5%;
+    position: absolute; /* Sit on top of the page content */
     display: none; /* Hidden by default */
     width: 100%; /* Full width (cover the whole page) */
     height: 100%; /* Full height (cover the whole page) */
