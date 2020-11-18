@@ -70,54 +70,70 @@
             <div class="row justify-content-center">
                 <h1>'Year' 'Make' 'Model'</h1>
             </div>
-            <div class="row justify-content-around">
-                <!-- <img src="images/Lamborghini Aventador.jpg" style="max-width: 40vw; max-height: 20vw;"> -->
-                <div class="col-5 p-3 m-3 text-center" style="border: 1px solid black; border-radius: 10px;">
-                    <div class="row justify-content-center">
-                        <h2>Vehicle Information</h2>
+            <div class="accordian" id="pageInfo">
+                <div class="card">
+                    <div class="card-header" id="vehicleInfoHead">
+                        <h2>
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#vehicleInfo" aria-expanded="true" aria-controls="vehicleInfo">
+                                Vehicle Information
+                            </button>
+                        </h2>
                     </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <p class="font-weight-bold mb-0">Class</p>
-                            <p>'Class'</p>
-                            <p class="font-weight-bold mb-0">Body</p>
-                            <p>'Body'</p>
-                            <p class="font-weight-bold mb-0">Engine</p>
-                            <p>'Engine'</p>
-                            <p class="font-weight-bold mb-0">MSRP</p>
-                            <p>'MSRP'</p>
-                        </div>
-                        <div class="col-6">
-                            <p class="font-weight-bold mb-0">Color</p>
-                            <p>'Color'</p>
-                            <p class="font-weight-bold mb-0">Seats</p>
-                            <p>'Seats'</p>
-                            <p class="font-weight-bold mb-0">Transmission</p>
-                            <p>'Transmission'</p>
-                            <p class="font-weight-bold mb-0">$/day</p>
-                            <p>'Cost/day'</p>
+                    <div id="vehicleInfo" class="collapse show" aria-labelledby="vehicleInfoHead" data-parent="#pageInfo">
+                        <div class="row p-3 m-3 text-center justify-content-around">
+                            <div class="col-3">
+                                <p class="font-weight-bold mb-0">Class</p>
+                                <p>'Class'</p>
+                                <p class="font-weight-bold mb-0">Engine</p>
+                                <p>'Engine'</p>
+                            </div>
+                            <div class="col-3">
+                                <p class="font-weight-bold mb-0">Color</p>
+                                <p>'Color'</p>
+                                <p class="font-weight-bold mb-0">Transmission</p>
+                                <p>'Transmission'</p>                                       
+                            </div>
+                            <div class="col-3">
+                                <p class="font-weight-bold mb-0">Body</p>
+                                <p>'Body'</p>
+                                <p class="font-weight-bold mb-0">MSRP</p>
+                                <p>'MSRP'</p>
+                            </div>
+                            <div class="col-3">
+                                <p class="font-weight-bold mb-0">Seats</p>
+                                <p>'Seats'</p>
+                                <p class="font-weight-bold mb-0">$/day</p>
+                                <p>'Cost/day'</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-5 p-3 m-3" style="border: 1px solid black; border-radius: 10px;">
-                    <div class="row justify-content-center">
-                        <h2>Rental Information</h2>
+
+                <div class="card">
+                    <div class="card-header" id="rentalInfoHead">
+                        <h2>
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#rentalInfo" aria-expanded="true" aria-controls="rentalInfo">
+                                Rental Information
+                            </button>
+                        </h2>
                     </div>
-                    <div class="row text-left">
-                        <div class="col-12">
-                            <p class="font-weight-bold mb-0">Pickup Address</p>
-                            <p>'Pickup Address'</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6">
-                            <p class="font-weight-bold mb-0">Pickup Date</p>
-                            <p>'date_format($date, 'D, M j, Y')'</p>
-                        </div>
-                        <div class="col-6">
-                            <p class="font-weight-bold mb-0">Drop-off Date</p>
-                            <p>'date_format($date, 'D, M j, Y')'</p>
-                        </div>
+                    <div id="rentalInfo" class="collapse show" aria-labelledby="rentalInfoHead" data-parent="#pageInfo">
+                            <div class="row p-3 m-1 text-left justify-content-around">
+                                <div class="col-12">
+                                    <p class="font-weight-bold mb-0">Pickup Address</p>
+                                    <p>'Pickup Address'</p>
+                                </div>
+                            </div>
+                            <div class="row p-3 m-1 text-left justify-content-around">
+                                <div class="col-6">
+                                    <p class="font-weight-bold mb-0">Pickup Date</p>
+                                    <p>'date_format($date, 'D, M j, Y')'</p>
+                                </div>
+                                <div class="col-6">
+                                    <p class="font-weight-bold mb-0">Drop-off Date</p>
+                                    <p>'date_format($date, 'D, M j, Y')'</p>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>
