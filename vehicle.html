@@ -252,6 +252,37 @@
                             </div>     
                         </div>
                     </div>
+
+                    <div class="card">
+                        <div class="card-header" id="paymentInfoHead">
+                            <h2>
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#paymentInfo" aria-expanded="false" aria-controls="paymentInfo">
+                                    Rental Information
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="paymentInfo" class="collapse show" aria-labelledby="paymentInfoHead" data-parent="#pageInfo">
+                            <div class="form-group row justify-content-center">
+                                <div class="col-11">
+                                    <label for="username" class="col-form-label">Username</label>
+                                    <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid username.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row justify-content-center">
+                                <div class="col-11">
+                                    <label for="password" class="col-form-label">Password</label>
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid passowrd.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <script>
                         (function () {
                             'use strict';
