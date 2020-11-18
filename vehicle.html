@@ -15,22 +15,112 @@
         <!-- SCRIPTS -->
         <link rel="stylesheet" href="styles.css">
 
-        <title>Welcome to ###</title>
+        <title></title>
+
+        <style>
+            p{
+                font-size: 1.1em;
+            }
+        </style>
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-            <a class="navbar-brand" href="welcomePage.html">Logo</a>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-            </ul>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <a class="navbar-brand mx-auto" href="welcomePage.php">Logo</a>
+            <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="mx-auto order-0">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Right</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
 
+        <div class="jumbotron" style="background-image: url(images/cars/Lamborghini\ Aventador.jpg); height: 25vw; background-position: center; background-size: cover;">
 
+        </div>
+        <div class="container mt-4" style="">
+            <div class="row justify-content-center">
+                <h1>'Year' 'Make' 'Model'</h1>
+            </div>
+            <div class="row justify-content-around">
+                <!-- <img src="images/Lamborghini Aventador.jpg" style="max-width: 40vw; max-height: 20vw;"> -->
+                <div class="col-5 p-3 m-3 text-center" style="border: 1px solid black; border-radius: 10px;">
+                    <div class="row justify-content-center">
+                        <h2>Vehicle Information</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="font-weight-bold mb-0">Class</p>
+                            <p>'Class'</p>
+                            <p class="font-weight-bold mb-0">Body</p>
+                            <p>'Body'</p>
+                            <p class="font-weight-bold mb-0">Engine</p>
+                            <p>'Engine'</p>
+                            <p class="font-weight-bold mb-0">MSRP</p>
+                            <p>'MSRP'</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="font-weight-bold mb-0">Color</p>
+                            <p>'Color'</p>
+                            <p class="font-weight-bold mb-0">Seats</p>
+                            <p>'Seats'</p>
+                            <p class="font-weight-bold mb-0">Transmission</p>
+                            <p>'Transmission'</p>
+                            <p class="font-weight-bold mb-0">$/day</p>
+                            <p>'Cost/day'</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5 p-3 m-3" style="border: 1px solid black; border-radius: 10px;">
+                    <div class="row justify-content-center">
+                        <h2>Rental Information</h2>
+                    </div>
+                    <div class="row text-left">
+                        <div class="col-12">
+                            <p class="font-weight-bold mb-0">Pickup Address</p>
+                            <p>'Pickup Address'</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <p class="font-weight-bold mb-0">Pickup Date</p>
+                            <p>'date_format($date, 'D, M j, Y')'</p>
+                        </div>
+                        <div class="col-6">
+                            <p class="font-weight-bold mb-0">Drop-off Date</p>
+                            <p>'date_format($date, 'D, M j, Y')'</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
