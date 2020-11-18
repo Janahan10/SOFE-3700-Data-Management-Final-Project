@@ -76,7 +76,7 @@
                     </div>
                     <div class="col-md-3">
                         <input type="date" class="form-control" id="inputDropDate" name="dropDate">
-                        <label for="inputDropDate" class="col-md-12 col-form-label">Dropoff Date</label>
+                        <label for="inputDropDate" class="col-md-12 col-form-label">Drop-off Date</label>
                     </div>
                 </div>
                 <div class="form-group row">
