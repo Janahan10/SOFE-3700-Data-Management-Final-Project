@@ -14,6 +14,7 @@
 
         <!-- SCRIPTS -->
         <link rel="stylesheet" href="styles.css">
+        <script src="script.js"></script>
 
         <title></title>
 
@@ -66,7 +67,7 @@
         <div class="jumbotron" style="background-image: url(images/cars/Lamborghini\ Aventador.jpg); height: 25vw; background-position: center; background-size: cover;">
 
         </div>
-        <div class="container mt-4" style="">
+        <div class="container my-4" style="">
             <div class="row justify-content-center">
                 <h1>'Year' 'Make' 'Model'</h1>
             </div>
@@ -118,24 +119,159 @@
                         </h2>
                     </div>
                     <div id="rentalInfo" class="collapse show" aria-labelledby="rentalInfoHead" data-parent="#pageInfo">
-                            <div class="row p-3 m-1 text-left justify-content-around">
-                                <div class="col-12">
-                                    <p class="font-weight-bold mb-0">Pickup Address</p>
-                                    <p>'Pickup Address'</p>
-                                </div>
+                        <div class="row p-3 m-1 text-left justify-content-around">
+                            <div class="col-12">
+                                <p class="font-weight-bold mb-0">Pickup Address</p>
+                                <p>'Pickup Address'</p>
                             </div>
-                            <div class="row p-3 m-1 text-left justify-content-around">
-                                <div class="col-6">
-                                    <p class="font-weight-bold mb-0">Pickup Date</p>
-                                    <p>'date_format($date, 'D, M j, Y')'</p>
-                                </div>
-                                <div class="col-6">
-                                    <p class="font-weight-bold mb-0">Drop-off Date</p>
-                                    <p>'date_format($date, 'D, M j, Y')'</p>
-                                </div>
+                        </div>
+                        <div class="row p-3 m-1 text-left justify-content-around">
+                            <div class="col-6">
+                                <p class="font-weight-bold mb-0">Pickup Date</p>
+                                <p>'date_format($date, 'D, M j, Y')'</p>
                             </div>
+                            <div class="col-6">
+                                <p class="font-weight-bold mb-0">Drop-off Date</p>
+                                <p>'date_format($date, 'D, M j, Y')'</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <form action="#" method="post">
+                    <div class="card">
+                        <div class="card-header" id="loginSignupHead">
+                            <h2>
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#loginSignup" aria-expanded="false" aria-controls="loginSignup">
+                                    Login/Sign up
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="loginSignup" class="collapse show p-2" aria-labelledby="loginSignupHead" data-parent="#pageInfo">
+                            <div id="login">
+                                <div class="form-group row justify-content-center">
+                                    <div class="col-11">
+                                        <label for="username" class="col-form-label">Username</label>
+                                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid username.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row justify-content-center">
+                                    <div class="col-11">
+                                        <label for="password" class="col-form-label">Password</label>
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid passowrd.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="signup" style="display: none;">
+                                <div class="form-row justify-content-center">
+                                    <div class="form-group col-md-5">
+                                        <label for="fname" class="col-form-label">First Name</label>
+                                        <input type="text" class="form-control" id="fname" name="fname" placeholder="First Name" required>
+                                        <div class="invalid-feedback">
+                                            Please provide first name.
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-5">
+                                        <label for="lname" class="col-form-label">Last Name</label>
+                                        <input type="text" class="form-control" id="lname" name="lname" placeholder="Last Name" required>
+                                        <div class="invalid-feedback">
+                                            Please provide last name.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row justify-content-center">
+                                    <div class="form-group col-md-3">
+                                        <label for="phone" class="col-form-label">Phone Number</label>
+                                        <input type="tel" class="form-control" id="phone" name="phone" placeholder="Phone" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid phone number.
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-4">
+                                        <label for="dNo" class="col-form-label">Drivers License No.</label>
+                                        <input type="text" class="form-control" id="dNo" name="dNo" placeholder="Drivers License" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid drivers license number.
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="dob" class="col-form-label">Date of Birth</label>
+                                        <input type="date" class="form-control" id="dob" name="dob" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid date of birth.
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group row justify-content-center">
+                                    <div class="form-group col-md-5">
+                                        <label for="email">Email</label>
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid email.
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-5">
+                                        <label for="username">Username</label>
+                                        <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid username.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row justify-content-center">
+                                    <div class="form-group col-md-5">
+                                        <label for="password">Password</label>
+                                        <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid passowrd.
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-5">
+                                        <label for="repeatPassword">Repeat Password</label>
+                                        <input type="password" class="form-control" id="repeatPassword" placeholder="Repeat Password" required>
+                                        <div class="invalid-feedback">
+                                            Please provide a valid password.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-check">
+                                <div class="col-11">
+                                    <input type="checkbox" class="form-check-input" id="hasAccount" name="has_account" value="true" onclick="switchForm()">
+                                    <label class="form-check-label" for="exampleCheck1">I don't have an account</label>
+                                </div>
+                            </div>     
+                        </div>
+                    </div>
+                    <script>
+                        (function () {
+                            'use strict';
+                            window.addEventListener('load', function () {
+    
+                                var forms = document.getElementsByClassName('needs-validation');
+    
+                                var validation = Array.prototype.filter.call(forms, function (form) {
+                                    form.addEventListener('submit', function (event) {
+                                        if (form.checkValidity() === false) {
+                                            event.preventDefault();
+                                            event.stopPropagation();
+                                        }
+                                        form.classList.add('was-validated');
+                                    }, false);
+                                });
+                            }, false);
+                        })();
+                    </script>
+                </form>
             </div>
         </div>
     </body>
