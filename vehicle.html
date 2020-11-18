@@ -67,7 +67,7 @@
         <div class="jumbotron" style="background-image: url(images/cars/Lamborghini\ Aventador.jpg); height: 25vw; background-position: center; background-size: cover;">
 
         </div>
-        <div class="container my-4" style="">
+        <div class="container my-4">
             <div class="row justify-content-center">
                 <h1>'Year' 'Make' 'Model'</h1>
             </div>
@@ -105,40 +105,55 @@
                                 <p>'Seats'</p>
                                 <p class="font-weight-bold mb-0">$/day</p>
                                 <p>'Cost/day'</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-header" id="rentalInfoHead">
-                        <h2>
-                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#rentalInfo" aria-expanded="true" aria-controls="rentalInfo">
-                                Rental Information
-                            </button>
-                        </h2>
-                    </div>
-                    <div id="rentalInfo" class="collapse show" aria-labelledby="rentalInfoHead" data-parent="#pageInfo">
-                        <div class="row p-3 m-1 text-left justify-content-around">
-                            <div class="col-12">
-                                <p class="font-weight-bold mb-0">Pickup Address</p>
-                                <p>'Pickup Address'</p>
-                            </div>
-                        </div>
-                        <div class="row p-3 m-1 text-left justify-content-around">
-                            <div class="col-6">
-                                <p class="font-weight-bold mb-0">Pickup Date</p>
-                                <p>'date_format($date, 'D, M j, Y')'</p>
-                            </div>
-                            <div class="col-6">
-                                <p class="font-weight-bold mb-0">Drop-off Date</p>
-                                <p>'date_format($date, 'D, M j, Y')'</p>
+                                <input type="number" class="form-control d-none" id="dayCost" value="10" readonly>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <form action="#" method="post">
+                    <div class="card">
+                        <div class="card-header" id="rentalInfoHead">
+                            <h2>
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#rentalInfo" aria-expanded="true" aria-controls="rentalInfo">
+                                    Rental Information
+                                </button>
+                            </h2>
+                        </div>
+                        <div id="rentalInfo" class="collapse show" aria-labelledby="rentalInfoHead" data-parent="#pageInfo">
+                            <input type="number" class="form-control d-none" id="carID" name="carID" value="1" readonly>
+                            <div class="row p-2 m-1 text-left justify-content-center">
+                                <div class="col-10">
+                                    <label for="pickupAddress">Pickup Location</label>
+                                    <input type="text" class="form-control" id="pickupAddress" value="Address" readonly required>
+                                    <input type="number" class="form-control d-none" id="pickupLocID" name="pickupLocID" value="" readonly>
+                                </div>
+                            </div>
+                            <div class="row p-2 m-1 text-left justify-content-center">
+                                <div class="col-10">
+                                    <label for="dropLocID">Drop-off Location</label>
+                                    <select id="dropLocID" class="form-control" name="dropLocID" required>
+                                        <option selected value="" disabled>Choose a location</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please choose a location.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row p-2 m-1 text-left justify-content-center">
+                                <div class="col-5">                                   
+                                    <label for="inputPickupDate" class="col-md-12 col-form-label">Pickup Date</label>
+                                    <input type="date" class="form-control" id="inputPickupDate" name="pickDate" value="" readonly>
+                                </div>
+                                <div class="col-5">
+                                    <label for="inputDropDate" class="col-md-12 col-form-label">Drop-off Date</label>
+                                    <input type="date" class="form-control" id="inputDropDate" name="dropDate" value="" readonly>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                
                     <div class="card">
                         <div class="card-header" id="loginSignupHead">
                             <h2>
@@ -257,31 +272,68 @@
                         <div class="card-header" id="paymentInfoHead">
                             <h2>
                                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#paymentInfo" aria-expanded="false" aria-controls="paymentInfo">
-                                    Rental Information
+                                    Payment Information
                                 </button>
                             </h2>
                         </div>
                         <div id="paymentInfo" class="collapse show" aria-labelledby="paymentInfoHead" data-parent="#pageInfo">
+                            <div class="form-group row justify-content-left mt-2">
+                                <div class="col-1"></div>
+                                <div class="col-1">
+                                    <label for="totalCost" class="col-form-label font-weight-bold">Total: $</label>
+                                </div>
+                                <div class="col-2">
+                                    <input type="number" class="form-control" id="totalCost" value="10" readonly>
+                                </div>
+                            </div>
                             <div class="form-group row justify-content-center">
-                                <div class="col-11">
-                                    <label for="username" class="col-form-label">Username</label>
-                                    <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+                                <div class="col-5">
+                                    <label for="name" class="col-form-label">Full name on card</label>
+                                    <input type="text" class="form-control" id="name" placeholder="" required>
                                     <div class="invalid-feedback">
-                                        Please provide a valid username.
+                                        Please provide a name.
+                                    </div>
+                                </div>
+                                <div class="col-5">
+                                    <label for="cardNo" class="col-form-label">Debit/Credit Card Number</label>
+                                    <input type="number" class="form-control" id="cardNo" placeholder="" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a card number.
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group row justify-content-center">
-                                <div class="col-11">
-                                    <label for="password" class="col-form-label">Password</label>
-                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+                                <div class="col-4">
+                                    <label for="expDate">Expiry Date</label>
+                                    <input type="month" class="form-control" id="expDate" required>
                                     <div class="invalid-feedback">
-                                        Please provide a valid passowrd.
+                                        Please choose a month.
                                     </div>
+                                </div>
+                                <div class="col-2">
+                                    <label for="CVV">Security Code</label>
+                                    <input type="number" class="form-control" id="CVV" max="999" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a valid number.
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <label for="billZIP">Billing Postal Code</label>
+                                    <input type="text" class="form-control" id="billZIP" required>
+                                    <div class="invalid-feedback">
+                                        Please enter a ZIP code.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row justify-content-center">
+                                <div class="col-10">
+                                    <button type="submit" class="btn btn-primary">Reserve Now</button>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    
 
                     <script>
                         (function () {
