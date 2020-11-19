@@ -1,5 +1,42 @@
 <?php
 
+    $server="localhost";
+    $user="admin";
+    $pass="password";
+    $dbname="car_rental";
+
+    //Create connection
+    $conn=mysqli_connect($server,$user,$pass,$dbname);
+
+    //check connection
+    if(!$conn){
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    // Start a session
+    session_start();
+
+    // Get variables passed through get method
+    $pickupLoc=$_GET["pickupLoc"];
+    $pickDate=$_GET["pickDate"];
+    $dropDate=$_GET["dropDate"];
+    $carID=$_GET["carID"];
+
+    if ($pickupLoc && $pickDate && $dropDate && $dropDate) {
+        // Retrieve the car information
+        $retrieveCar="select * from car where ID='$carID';";
+        $carResult=mysqli_query($conn,$query);
+
+        // Check results
+        if(!$carResult){
+            die("Query Failed: " . mysqli_error($conn));
+        }else{
+            if(mysqli_num_rows($result)>0){
+                // get the row of information
+                $car=$carResult->fetch_assoc();
+            }
+        }
+    }
 ?>
 
 <!DOCTYPE html>
