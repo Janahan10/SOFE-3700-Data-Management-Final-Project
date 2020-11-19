@@ -32,10 +32,11 @@
         }else{
             if(mysqli_num_rows($result)>0){
                 // Get first and last name, user id, and success message
-                $firstname=mysqli_query($conn, "select Fname from client where username=" . $username . " and password=" . $password . ";");
-                $lastname=mysqli_query($conn, "select Lname from client where username=" . $username . " and password=" . $password . ";");
-                $user_id=mysqli_query($conn, "select ID from client where username=" . $username . " and password=" . $password . ";");
-                $success="Welcome, " . $firstname . " " . $lastname;
+                $row=$result->fetch_assoc();
+                $firstname=$row["Fname"];
+                $lastname=$row["Lname"];
+                $user_id=$row["ID"];
+                $success="Welcome, $firstname $lastname";
                 
                 // Assign session variables
                 $_SESSION["fname"] = $firstname;
@@ -95,11 +96,11 @@
                             // echo "<div class=\"row\">";
 
                             echo "<div class=\"row text-center\"><div class=\"col-12 text-center\"><h1>" . $success . "</h1></div></div>";
-
+                            
                             echo "<div class=\"row\">";
                             echo "<div class=\"col-4 mt-5 text-center\"><a href=\"welcomePage.php\">Pick a location to rent</a></div>";
                             echo "<div class=\"col-4 mt-5 text-center\"><a href=\"#\">Browse our fleet</a></div>";
-                            echo "<div class=\"col-4 mt-5 text-center\"><a href=\"#\">Check your orders</a></div>";
+                            echo "<div class=\"col-4 mt-5 text-center\"><a href=\"test.php\">Check your orders</a></div>";
                             echo "</div>";
                         } else{
                             echo "<div class=\"row text-center\"><div class=\"col-12 text-center\"><h1>" . $error . "</h1></div></div>";
