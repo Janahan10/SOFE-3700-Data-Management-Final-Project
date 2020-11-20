@@ -260,6 +260,10 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class=\"form-group row justify-content-center\">
+                                        <div class=\"col-10 text-right\">
+                                            <a href=\"sign-up.html\">Create an account</a>
+                                        </div>
                                 </div>  
                             </div>
                         </div>";
