@@ -260,89 +260,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div id=\"signup\" style=\"display: none;\">
-                                    <div class=\"form-row justify-content-center\">
-                                        <div class=\"form-group col-md-5\">
-                                            <label for=\"fname\" class=\"col-form-label\">First Name</label>
-                                            <input type=\"text\" class=\"form-control\" id=\"fname\" name=\"fname\" placeholder=\"First Name\" required>
-                                            <div class=\"invalid-feedback\">
-                                                Please provide first name.
-                                            </div>
-                                        </div>
-                                        <div class=\"form-group col-md-5\">
-                                            <label for=\"lname\" class=\"col-form-label\">Last Name</label>
-                                            <input type=\"text\" class=\"form-control\" id=\"lname\" name=\"lname\" placeholder=\"Last Name\" required>
-                                            <div class=\"invalid-feedback\">
-                                                Please provide last name.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class=\"form-group row justify-content-center\">
-                                        <div class=\"form-group col-md-3\">
-                                            <label for=\"phone\" class=\"col-form-label\">Phone Number</label>
-                                            <input type=\"tel\" class=\"form-control\" id=\"phone\" name=\"phone\" placeholder=\"Phone\" required>
-                                            <div class=\"invalid-feedback\">
-                                                Please provide a valid phone number.
-                                            </div>
-                                        </div>
-                                        <div class=\"form-group col-md-4\">
-                                            <label for=\"dNo\" class=\"col-form-label\">Drivers License No.</label>
-                                            <input type=\"text\" class=\"form-control\" id=\"dNo\" name=\"dNo\" placeholder=\"Drivers License\" required>
-                                            <div class=\"invalid-feedback\">
-                                                Please provide a valid drivers license number.
-                                            </div>
-                                        </div>
-                                        <div class=\"form-group col-md-3\">
-                                            <label for=\"dob\" class=\"col-form-label\">Date of Birth</label>
-                                            <input type=\"date\" class=\"form-control\" id=\"dob\" name=\"dob\" required>
-                                            <div class=\"invalid-feedback\">
-                                                Please provide a valid date of birth.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class=\"form-group row justify-content-center\">
-                                        <div class=\"form-group col-md-5\">
-                                            <label for=\"email\">Email</label>
-                                            <input type=\"email\" class=\"form-control\" id=\"email\" name=\"email\" placeholder=\"Email\" required>
-                                            <div class=\"invalid-feedback\">
-                                                Please provide a valid email.
-                                            </div>
-                                        </div>
-                                        <div class=\"form-group col-md-5\">
-                                            <label for=\"username\">Username</label>
-                                            <input type=\"text\" class=\"form-control\" id=\"username\" name=\"username\" placeholder=\"Username\" required>
-                                            <div class=\"invalid-feedback\">
-                                                Please provide a valid username.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class=\"form-group row justify-content-center\">
-                                        <div class=\"form-group col-md-5\">
-                                            <label for=\"password\">Password</label>
-                                            <input type=\"password\" class=\"form-control\" id=\"password\" name=\"password\" placeholder=\"Password\" required>
-                                            <div class=\"invalid-feedback\">
-                                                Please provide a valid passowrd.
-                                            </div>
-                                        </div>
-                                        <div class=\"form-group col-md-5\">
-                                            <label for=\"repeatPassword\">Repeat Password</label>
-                                            <input type=\"password\" class=\"form-control\" id=\"repeatPassword\" placeholder=\"Repeat Password\" required>
-                                            <div class=\"invalid-feedback\">
-                                                Please provide a valid password.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class=\"form-check\">
-                                    <div class=\"col-11\">
-                                        <input type=\"checkbox\" class=\"form-check-input\" id=\"hasAccount\" name=\"has_account\" value=\"true\" onclick=\"switchForm()\">
-                                        <label class=\"form-check-label\" for=\"exampleCheck1\">I don't have an account</label>
-                                    </div>
-                                </div>     
+                                </div>  
                             </div>
                         </div>";
                     }
@@ -364,7 +282,7 @@
                                     <label for="totalCost" class="col-form-label font-weight-bold">Total: $</label>
                                 </div>
                                 <div class="col-2">
-                                    <input type="number" class="form-control" id="totalCost" value="<?php echo "$totalCost"?>" readonly>
+                                    <input type="number" class="form-control" id="totalCost" name="totalCost" value="<?php echo "$totalCost"?>" readonly>
                                 </div>
                             </div>
                             <div class="form-group row justify-content-center">
