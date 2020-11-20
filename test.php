@@ -1,7 +1,22 @@
 <?php
+    session_start();
+    // $carID=$_POST["carID"];
+    // $pickupLocID=$_POST["pickupLocID"];
+    // $dropLocID=$_POST["dropLocID"];
+    // $pickDate=$_POST["pickDate"];
+    // $dropDate=$_POST["dropDate"];
+    // $username=$_POST["username"];
+    // $password=$_POST["password"];
+    // $has_account=$_POST["has_account"];
+    // $totalCost=$_POST["totalCost"];
 
-    if($_POST['pickupLoc'] and $_POST['pickDate'] and $_POST['dropDate'])
-    {
-        echo $_POST['pickupLoc'] . " " . $_POST['pickDate'] . " " . $_POST['dropDate'];
-    }
+    // echo $carID;
+    // echo $pickupLocID;
+    // echo $dropLocID;
+    // echo $pickDate;
+    // echo $dropDate;
+    // echo $username;
+    // echo $password;
+    // echo $totalCost;
+    session_destroy();
 ?>

@@ -45,7 +45,9 @@
             $_SESSION["user"] = $username;
 
             // Get user id and set into session
-            $user_id=mysqli_query($conn, "select ID from client where username=" . $username . " and password=" . $password . ";");
+            $fetch_id=mysqli_query($conn, "select ID from client where username='$username' and password='$password';");
+            $row=$fetch_id->fetch_assoc();
+            $user_id=$row["ID"];
             $_SESSION["user_id"] = $user_id;
         }
     }
@@ -94,7 +96,7 @@
 
                             echo "<div class=\"row\">";
                             echo "<div class=\"col-6 mt-5 text-center\"><a href=\"welcomePage.php\">Pick a location to rent</a></div>";
-                            echo "<div class=\"col-6 mt-5 text-center\"><a href=\"#\">Browse our fleet</a></div>";
+                            echo "<div class=\"col-6 mt-5 text-center\"><a href=\"test.php\">Browse our fleet</a></div>";
                             echo "</div>";
                         } else{
                             echo "<div class=\"row text-center\"><div class=\"col-12 text-center\"><h1>" . $error . "</h1></div></div>";

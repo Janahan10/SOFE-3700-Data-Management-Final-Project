@@ -53,7 +53,7 @@
                     <div class="col-md-12">
                         <label for="inputPickupLoc" class="col-md-10 col-form-label">Pick a Location</label>
                         <select id="inputPickupLoc" class="form-control" name="pickupLoc">
-                            <option selected>Choose a location</option>
+                            <option selected value="" disabled>Choose a location</option>
                             <?php
                                 if ($result->num_rows > 0) {
                                     // output data of each row
@@ -67,6 +67,9 @@
                                 $conn->close();
                             ?>
                         </select>
+                        <div class="invalid-feedback">
+                            Please choose a location.
+                        </div>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -76,7 +79,7 @@
                     </div>
                     <div class="col-md-3">
                         <input type="date" class="form-control" id="inputDropDate" name="dropDate">
-                        <label for="inputDropDate" class="col-md-12 col-form-label">Dropoff Date</label>
+                        <label for="inputDropDate" class="col-md-12 col-form-label">Drop-off Date</label>
                     </div>
                 </div>
                 <div class="form-group row">
