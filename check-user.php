@@ -111,35 +111,6 @@
                             echo "</div>";
                         }
                     ?>
-                    <!-- <div class="row text-center">
-                        <div class="col-12 text-center">
-                            <h1>Welcome Fname Lname</h1>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-4 mt-5 text-center">
-                            <a href="welcomePage.php">Pick a location to rent</a>
-                        </div>
-                        <div class="col-4 mt-5 text-center">
-                            <a href="#">Browse our fleet</a>
-                        </div>
-                        <div class="col-4 mt-5 text-center">
-                            <a href="#">Check your orders</a>
-                        </div>
-                    </div> -->
-                    <!-- <div class="row text-center">
-                        <div class="col-12 text-center">
-                            <h1>User does not exist</h1>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-6 mt-5 text-center">
-                            <a href="sign-in.html">Log in again</a>
-                        </div>
-                        <div class="col-6 mt-5 text-center">
-                            <a href="sign-up.html">Create a new account</a>
-                        </div>
-                    </div> -->
                 </div> 
             </div>
              
