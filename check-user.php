@@ -89,12 +89,6 @@
                         // Check if there is a success or error message
                         // Print appropriate page
                         if($success){
-                            // echo "<div class=\"row text-center\">";
-                            // echo "<div class=\"col-12 text-center\">";
-                            // echo "<h1>" . $success . "</h1>";
-                            // echo "</div></div>";
-                            // echo "<div class=\"row\">";
-
                             echo "<div class=\"row text-center\"><div class=\"col-12 text-center\"><h1>" . $success . "</h1></div></div>";
                             
                             echo "<div class=\"row\">";

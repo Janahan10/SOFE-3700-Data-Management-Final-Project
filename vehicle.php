@@ -176,7 +176,7 @@
                     </div>
                 </div>
             
-                <form action="#" method="post">
+                <form action="add-order.php" method="post">
                     <div class="card">
                         <div class="card-header" id="rentalInfoHead">
                             <h2>
