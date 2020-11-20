@@ -130,7 +130,7 @@
             </div>
         </nav>
 
-        <div class="jumbotron" style="background-image: url(images/cars/Lamborghini\ Aventador.jpg); height: 25vw; background-position: center; background-size: cover;">
+        <div class="jumbotron" style="background-image: url(images/cars/<?php echo "$carMake\ $carModel\ $carColor"?>.jpg); height: 25vw; background-position: center; background-size: cover;">
 
         </div>
         <div class="container my-4">
