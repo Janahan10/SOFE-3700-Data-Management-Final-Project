@@ -27,7 +27,7 @@
     $success="";
 
     // Login function
-    function login(){
+    function login($conn){
         // Get username and password
         $username=$_POST['username'];
         $password=$_POST['password'];
@@ -67,7 +67,7 @@
     }
 
     // Order function
-    function order($carID, $pickupLocID, $dropLocID, $pickDate, $dropDate, $totalCost){
+    function order($conn, $carID, $pickupLocID, $dropLocID, $pickDate, $dropDate, $totalCost){
         if (isset($_SESSION["user_id"])) {
             // Get the user id
             $user_id=$_SESSION["user_id"];
@@ -92,7 +92,7 @@
 
     if (isset($_SESSION["user_id"])) {
         // Call the order function
-        $ord_success=order($carID, $pickupLocID, $dropLocID, $pickDate, $dropDate, $totalCost);
+        $ord_success=order($conn, $carID, $pickupLocID, $dropLocID, $pickDate, $dropDate, $totalCost);
 
         // Get output message
         if ($ord_success) {
@@ -102,8 +102,8 @@
         }
     } else {
         // Call the login function then the order function;
-        $log_success=login();
-        $ord_success=order($carID, $pickupLocID, $dropLocID, $pickDate, $dropDate, $totalCost);
+        $log_success=login($conn);
+        $ord_success=order($conn, $carID, $pickupLocID, $dropLocID, $pickDate, $dropDate, $totalCost);
 
         // Get output message
         if ($ord_success && $log_success) {
