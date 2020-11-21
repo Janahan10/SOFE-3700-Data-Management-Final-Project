@@ -33,40 +33,29 @@
             select o.car_ID
             from order_details o, stored_in s
             where o.car_ID=s.car_ID and o.pickup_loc=s.loc_No and s.loc_No=$pickupLocID and (o.pickup_date>='$dropDate' or o.drop_date<='$pickDate'));";
-        // $query="select * from car;";
         $car_result=mysqli_query($conn, $query);
 
+        // Request for all the data about the locations
+        $sql = "SELECT * FROM location";
+        $result = $conn->query($sql);
+
         // Check results
-        if(!$car_result){
+        if(!$car_result && !$result){
             die("Query Failed: " . mysqli_error($conn));
         } 
-        // else {
-        //     // get the car information
-        //     $car=$car_result->fetch_assoc();
-        //     $carYear=$car["year"];
-        //     $carMake=$car["make"];
-        //     $carModel=$car["model"];
-        //     $carColor=$car["color"];
-        //     $carDayCost=$car["cost_per_day"];
-        // }
     } else {
         // Get information of all cars if rental info not specified
         $query="select * from car;";
         $car_result=mysqli_query($conn, $query);
 
+        // Request for all the data about the locations
+        $sql = "SELECT * FROM location";
+        $result = $conn->query($sql);
+
         // Check results
-        if(!$car_result){
+        if(!$car_result && !$result){
             die("Query Failed: " . mysqli_error($conn));
         }
-        // else {
-        //     // get the car information
-        //     $car=$car_result->fetch_assoc();
-            // $carYear=$car["year"];
-            // $carMake=$car["make"];
-            // $carModel=$car["model"];
-            // $carColor=$car["color"];
-            // $carDayCost=$car["cost_per_day"];
-        // }
     }
 ?>
 
@@ -126,6 +115,72 @@
         </div>
     </nav>
 
+    <div class="jumbotron p-1">
+        <form class="cards-container px-5 pt-2 needs-validation" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="get" novalidate>
+            <div class="form-group row justify-content-around">
+                <div class="col-md-6">
+                    <label for="inputPickupLoc" class="col-md-10 col-form-label">Pick a Location</label>
+                    <select id="inputPickupLoc" class="form-control" name="pickupLocID" required>
+                        <option selected value="" disabled>Choose a location</option>
+                        <?php
+                            if ($result->num_rows > 0) {
+                                // output data of each row
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<option value=" . $row["Loc_no"]. ">" . $row["address_line"]. ", "
+                                        . $row["city"] . ", " . $row["province"] . " " . $row["ZIP"] . "</option>";
+                                }
+                            }
+
+                            // Close the connection
+                            $conn->close();
+                        ?>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please choose a location.
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="inputPickupDate" class="col-md-12 col-form-label">Pickup Date</label>
+                    <input type="date" class="form-control" id="inputPickupDate" name="pickDate" required>
+                    <div class="invalid-feedback">
+                        Provide a valid pickup date 
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="inputDropDate" class="col-md-12 col-form-label">Drop-off Date</label>
+                    <input type="date" class="form-control" id="inputDropDate" name="dropDate" required>
+                    <div class="invalid-feedback">
+                        Provide a valid drop-off date 
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+            <script>
+                (function () {
+                    'use strict';
+                    window.addEventListener('load', function () {
+
+                        var forms = document.getElementsByClassName('needs-validation');
+
+                        var validation = Array.prototype.filter.call(forms, function (form) {
+                            form.addEventListener('submit', function (event) {
+                                if (form.checkValidity() === false) {
+                                    event.preventDefault();
+                                    event.stopPropagation();
+                                }
+                                form.classList.add('was-validated');
+                            }, false);
+                        });
+                    }, false);
+                })();
+            </script>
+        </form>
+    </div>
+
     <div class="cards-container">
         <?php 
             if(mysqli_num_rows($car_result)>0){
@@ -170,7 +225,7 @@
                         </div>";
                     }
                     
-                    // incerment the counter
+                    // increment the counter
                     $car_count++;
 
                     if ($car_count >= 3) {
