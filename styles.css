@@ -39,9 +39,7 @@
     display: block;
 }
 
-body {
-    padding-top: 100px;
-}
+
 
 .invalid-feedback {
     display: none;
@@ -84,10 +82,12 @@ body {
 
 .icon{
     margin-right: 5px;
-
-.offset-md-1 {
-    margin-right: 5%;
 }
+
+/* .offset-md-1 {
+    margin-right: 5%;
+} */
+
 .offset-md-left-1 {
     margin-left: 5%;
 }

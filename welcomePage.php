@@ -33,9 +33,19 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-            <a class="navbar-brand" href="welcomePage.html">Logo</a>
-            <ul class="navbar-nav">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand mx-auto" href="welcomePage.php">Logo</a>
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
                 </li>
@@ -43,16 +53,32 @@
                     <a class="nav-link" href="#">Link</a>
                 </li>
             </ul>
-        </nav>
+        </div>
+        <div class="mx-auto order-0">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Right</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
         <div class="jumbotron">
             <div class="text-center mx-3 my-3">
                 <h1>Book Your Rental Today</h1>
             </div>
-            <form class="container px-3 py-3" action="test.php" method="post">
+            <form class="container px-3 py-3" action="listings.php" method="get">
                 <div class="form-group row">
                     <div class="col-md-12">
                         <label for="inputPickupLoc" class="col-md-10 col-form-label">Pick a Location</label>
-                        <select id="inputPickupLoc" class="form-control" name="pickupLoc">
+                        <select id="inputPickupLoc" class="form-control" name="pickupLocID">
                             <option selected value="" disabled>Choose a location</option>
                             <?php
                                 if ($result->num_rows > 0) {
