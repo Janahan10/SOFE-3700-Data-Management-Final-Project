@@ -33,9 +33,19 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-            <a class="navbar-brand" href="welcomePage.html">Logo</a>
-            <ul class="navbar-nav">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand mx-auto" href="welcomePage.php">Logo</a>
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
                 </li>
@@ -43,52 +53,93 @@
                     <a class="nav-link" href="#">Link</a>
                 </li>
             </ul>
-        </nav>
-        <div class="jumbotron">
-            <div class="text-center mx-3 my-3">
-                <h1>Book Your Rental Today</h1>
-            </div>
-            <form class="container px-3 py-3" action="test.php" method="post">
-                <div class="form-group row">
-                    <div class="col-md-12">
-                        <label for="inputPickupLoc" class="col-md-10 col-form-label">Pick a Location</label>
-                        <select id="inputPickupLoc" class="form-control" name="pickupLoc">
-                            <option selected value="" disabled>Choose a location</option>
-                            <?php
-                                if ($result->num_rows > 0) {
-                                    // output data of each row
-                                    while($row = $result->fetch_assoc()) {
-                                        echo "<option value=" . $row["Loc_no"]. ">" . $row["address_line"]. ", "
-                                            . $row["city"] . ", " . $row["province"] . " " . $row["ZIP"] . "</option>";
-                                    }
-                                }
-
-                                // Close the connection
-                                $conn->close();
-                            ?>
-                        </select>
-                        <div class="invalid-feedback">
-                            Please choose a location.
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-md-3">
-                        <input type="date" class="form-control" id="inputPickupDate" name="pickDate">
-                        <label for="inputPickupDate" class="col-md-12 col-form-label">Pickup Date</label>
-                    </div>
-                    <div class="col-md-3">
-                        <input type="date" class="form-control" id="inputDropDate" name="dropDate">
-                        <label for="inputDropDate" class="col-md-12 col-form-label">Drop-off Date</label>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary">Select your car</button>
-                    </div>
-                </div>
-            </form>
         </div>
+        <div class="mx-auto order-0">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Right</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <div class="text-center mx-3 my-3">
+            <h1>Book Your Rental Today</h1>
+        </div>
+        <form class="container px-3 py-3 needs-validation" action="listings.php" method="get" novalidate>
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <label for="inputPickupLoc" class="col-md-10 col-form-label">Pick a Location</label>
+                    <select id="inputPickupLoc" class="form-control" name="pickupLocID" required>
+                        <option selected value="" disabled>Choose a location</option>
+                        <?php
+                            if ($result->num_rows > 0) {
+                                // output data of each row
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<option value=" . $row["Loc_no"]. ">" . $row["address_line"]. ", "
+                                        . $row["city"] . ", " . $row["province"] . " " . $row["ZIP"] . "</option>";
+                                }
+                            }
+
+                            // Close the connection
+                            $conn->close();
+                        ?>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please choose a location.
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-3">
+                    <input type="date" class="form-control" id="inputPickupDate" name="pickDate" required>
+                    <label for="inputPickupDate" class="col-md-12 col-form-label">Pickup Date</label>
+                    <div class="invalid-feedback">
+                        Provide a valid pickup date 
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <input type="date" class="form-control" id="inputDropDate" name="dropDate" required>
+                    <label for="inputDropDate" class="col-md-12 col-form-label">Drop-off Date</label>
+                    <div class="invalid-feedback">
+                        Provide a valid drop-off date 
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-md-12">
+                    <button type="submit" class="btn btn-primary">Select your car</button>
+                </div>
+            </div>
+            <script>
+                (function () {
+                    'use strict';
+                    window.addEventListener('load', function () {
+
+                        var forms = document.getElementsByClassName('needs-validation');
+
+                        var validation = Array.prototype.filter.call(forms, function (form) {
+                            form.addEventListener('submit', function (event) {
+                                if (form.checkValidity() === false) {
+                                    event.preventDefault();
+                                    event.stopPropagation();
+                                }
+                                form.classList.add('was-validated');
+                            }, false);
+                        });
+                    }, false);
+                })();
+            </script>
+        </form>
+    </div>
         
     </body>
 </html>

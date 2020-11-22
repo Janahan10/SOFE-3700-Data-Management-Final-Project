@@ -1,6 +1,6 @@
 #overlay {
-    margin-top: 3%;
-    position: fixed; /* Sit on top of the page content */
+    margin-top: 3.5%;
+    position: absolute; /* Sit on top of the page content */
     display: none; /* Hidden by default */
     width: 100%; /* Full width (cover the whole page) */
     height: 100%; /* Full height (cover the whole page) */
@@ -39,9 +39,7 @@
     display: block;
 }
 
-body {
-    padding-top: 100px;
-}
+
 
 .invalid-feedback {
     display: none;
@@ -84,10 +82,12 @@ body {
 
 .icon{
     margin-right: 5px;
-
-.offset-md-1 {
-    margin-right: 5%;
 }
+
+/* .offset-md-1 {
+    margin-right: 5%;
+} */
+
 .offset-md-left-1 {
     margin-left: 5%;
 }

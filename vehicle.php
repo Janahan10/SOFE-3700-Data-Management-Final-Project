@@ -17,7 +17,7 @@
     session_start();
 
     // Get variables passed through get method
-    $pickupLocID=$_GET["pickupLoc"];
+    $pickupLocID=$_GET["pickupLocID"];
     $pickDate=date_create($_GET["pickDate"]);
     $dropDate=date_create($_GET["dropDate"]);
     $carID=$_GET["carID"];
@@ -176,7 +176,7 @@
                     </div>
                 </div>
             
-                <form action="add-order.php" method="post">
+                <form action="add-order.php" method="post" class="needs-validation" novalidate>
                     <div class="card">
                         <div class="card-header" id="rentalInfoHead">
                             <h2>
