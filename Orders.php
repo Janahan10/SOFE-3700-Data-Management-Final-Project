@@ -1,28 +1,23 @@
 <?php
-session_start();
 
-    $servername = "localhost";
-    $username = "admin";
-    $password = "password";
-    $dbname = "car_rental";
+  $server="localhost";
+  $user="admin";
+  $pass="password";
+  $dbname="car_rental";
 
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
+  //Create connection
+  $conn=mysqli_connect($server,$user,$pass,$dbname);
 
+  //check connection
+  if(!$conn){
+      die("Connection failed: " . mysqli_connect_error());
+  }
 
-/*$user_id="";
-$_SESSION["user_id"] = $user_id;
-    // Request for all the data about the locations
-    $sql = "SELECT orderNo FROM order_details;";
-    $result = mysqli_query($conn, $sql);
-    while ($row = mysqli_fetch_assoc($result)){
-      echo $row['orderNo'] . "<br>";
+  // Start a session
+  session_start();
 
-}*/
+  
+
 ?>
 
 <!DOCTYPE html>

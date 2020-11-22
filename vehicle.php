@@ -164,7 +164,7 @@
                                 <p class="font-weight-bold mb-0">Body</p>
                                 <p><?php echo "$carBody"?></p>
                                 <p class="font-weight-bold mb-0">MSRP</p>
-                                <p><?php echo "$carMSRP"?></p>
+                                <p>$<?php echo "$carMSRP"?></p>
                             </div>
                             <div class="col-3">
                                 <p class="font-weight-bold mb-0">Seats</p>
