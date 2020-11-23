@@ -27,10 +27,10 @@
     
 
     // Check if the pickup loc, pick and drop date are set
-    if (isset($pickupLocID) && isset($pickDate) && isset($dropDate)) {
+    if ($pickupLocID && $pickDate && $dropDate) {
         // Make query and get cars that arent ordered during that time and are stored in that loc
         $query="select * from car where ID in (
-            select o.car_ID
+            select s.car_ID
             from order_details o, stored_in s
             where o.car_ID=s.car_ID and o.pickup_loc=s.loc_No and s.loc_No=$pickupLocID and (o.pickup_date>='$dropDate' or o.drop_date<='$pickDate'));";
         $car_result=mysqli_query($conn, $query);
@@ -78,42 +78,42 @@
 
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a class="navbar-brand mx-auto" href="welcomePage.php">Logo</a>
-        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-            </ul>
-        </div>
-        <div class="mx-auto order-0">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </div>
-        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Right</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
+            <a class="navbar-brand mx-3" href="welcomePage.php">Home</a>
+            <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="listings.php">Browse our fleet</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                <ul class="navbar-nav ml-auto">
+                    <?php
+                        if (isset($_SESSION["user_id"]) && isset($_SESSION["fname"]) && isset($_SESSION["lname"])) {
+                            echo "
+                                <li class=\"nav-item dropdown\">
+                                    <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbaruserDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                                        Welcome, ".$_SESSION["fname"]." ".$_SESSION["lname"]."
+                                    </a>
+                                    <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
+                                        <a class=\"dropdown-item\" href=\"list-orders.php\">Check orders</a>
+                                        <div class=\"dropdown-divider\"></div>
+                                        <a class=\"dropdown-item\" href=\"logout.php\">Sign out</a>
+                                    </div>
+                                </li>";
+                        } else {
+                            echo "
+                                <li class=\"nav-item\">
+                                    <a class=\"nav-link\" href=\"sign-in.html\">Sign in</a>
+                                </li>
+                                <li class=\"nav-item\">
+                                    <a class=\"nav-link\" href=\"sign-up.html\">Sign up</a>
+                                </li>";
+                        }
+                    ?>
+                </ul>
+            </div>
+        </nav>
 
     <div class="jumbotron p-1">
         <form class="cards-container px-5 pt-2 needs-validation" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="get" novalidate>
@@ -211,7 +211,7 @@
                                     <p class=\"card-text\">CA \$$carDayCost/day</p>
                                     ";
 
-                    if (isset($pickupLocID) && isset($pickDate) && isset($dropDate)) {
+                    if ($pickupLocID && $pickDate && $dropDate) {
                         echo "
                                     <a href=\"vehicle.php?pickupLocID=$pickupLocID&pickDate=$pickDate&dropDate=$dropDate&carID=$carID\" class=\"btn btn-primary center\" onclick=\"on()\">Rent</a>
                                 </div>
