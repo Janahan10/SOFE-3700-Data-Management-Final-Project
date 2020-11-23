@@ -16,44 +16,31 @@
     // Start a session
     session_start();
 
-    //set variables based on names in the html
-    $fname=$_POST["fname"];
-    $lname=$_POST["lname"];
-    $phone=$_POST["phone"];
-    $d_license=$_POST["dNo"];
-    $bdate=$_POST["dob"];
-    $email=$_POST["email"];
-    $username=$_POST['username'];
-    $password=$_POST['password'];
     $error="";
     $success="";
-    if(isset($fname) && isset($lname) && isset($phone) && isset($d_license) && isset($bdate) && isset($email) && isset($username) && isset($password)){
-        // Make query and get results
-        $insert="insert into client (username, password, Fname, Lname, Bdate, phone_No, Email, D_license) values('$username','$password','$fname','$lname','$bdate','$phone','$email','$d_license');";
-        $result=$conn->query($insert);
 
-        // Check results
-        if (!$result) {
-            echo $result;
-            $error="Unable to make an account";
+    if (isset($_POST["orderNo"]) && isset($_POST["car_ID"]) && isset($_POST["dropLocID"])) {
+        // Get variables
+        $orderNo=$_POST["orderNo"];
+        $car_ID=$_POST["car_ID"];
+        $dropLocID=$_POST["dropLocID"];
+
+        // Make a query to delete the results
+        $delete="delete from order_details where orderNo=$orderNo;";
+        $delete_result=mysqli_query($conn, $delete);
+
+        // make a query to change the location that the car is stored in
+        $switch="update stored_in set loc_No=$dropLocID where car_ID=$car_ID;";
+        $switch_result=mysqli_query($conn, $switch);
+
+        if (!$switch_result && !$delete_result) {
+            $error="Unable to return your order";
         } else {
-            $success="Thanks for joining";
-
-            // Get and set the details for this session
-            $_SESSION["fname"] = $fname;
-            $_SESSION["lname"] = $lname;
-            $_SESSION["user"] = $username;
-
-            // Get user id and set into session
-            $fetch_id=mysqli_query($conn, "select ID from client where username='$username' and password='$password';");
-            $row=$fetch_id->fetch_assoc();
-            $user_id=$row["ID"];
-            $_SESSION["user_id"] = $user_id;
+            $success="Thank you for renting with us";
         }
+    }else {
+        $error="This didn't work at all";
     }
-
-    $conn->close();
-
 ?>
 
 <!DOCTYPE html>
@@ -69,7 +56,7 @@
         <!-- SCRIPTS -->
         <link rel="stylesheet" href="styles.css">
 
-        <title>Sign in</title>
+        <title>Order Return</title>
     </head>
 
     <body>
@@ -119,24 +106,22 @@
                         // Print appropriate page
                         if($success){
                             echo "<div class=\"row text-center\"><div class=\"col-12 text-center\"><h1>" . $success . "</h1></div></div>";
-
-                            echo "<div class=\"row\">";
-                            echo "<div class=\"col-6 mt-5 text-center\"><a href=\"welcomePage.php\">Pick a location to rent</a></div>";
-                            echo "<div class=\"col-6 mt-5 text-center\"><a href=\"listings.php\">Browse our fleet</a></div>";
+                            
+                            echo "<div class=\"row justify-content-around\">";
+                            echo "<div class=\"col-4 mt-5 text-center\"><a href=\"listings.php\">Look at more vehicles</a></div>";
+                            echo "<div class=\"col-4 mt-5 text-center\"><a href=\"logout.php\">Sign out</a></div>";
                             echo "</div>";
                         } else{
                             echo "<div class=\"row text-center\"><div class=\"col-12 text-center\"><h1>" . $error . "</h1></div></div>";
 
                             echo "<div class=\"row\">";
-                            echo "<div class=\"col-6 mt-5 text-center\"><a href=\"sign-in.html\">Log in</a></div>";
-                            echo "<div class=\"col-6 mt-5 text-center\"><a href=\"sign-up.html\">Create a new account</a></div>";
+                            echo "<div class=\"col-6 mt-5 text-center\"><a href=\"list-orders.php\">Check your order again</a></div>";
+                            echo "<div class=\"col-6 mt-5 text-center\"><a href=\"logout.php\">Sign out</a></div>";
                             echo "</div>";
                         }
                     ?>
                 </div> 
             </div>
-             
-            
         </div> 
     </body>
 </html>

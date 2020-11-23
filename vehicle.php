@@ -22,7 +22,7 @@
     $dropDate=date_create($_GET["dropDate"]);
     $carID=$_GET["carID"];
 
-    if ($pickupLocID && $pickDate && $dropDate && $carID) {
+    if (isset($pickupLocID) && isset($pickDate) && isset($dropDate) && isset($carID)) {
         // Retrieve the car information
         $retrieveCar="select * from car where ID='$carID';";
         $carResult=mysqli_query($conn,$retrieveCar);
@@ -36,7 +36,7 @@
         $pickLocResult=mysqli_query($conn,$retrievePick);
 
         // Check results
-        if(!$carResult && !$locResult && !$pickLocResult){
+        if(!$carResult || !$locResult || !$pickLocResult){
             die("Query Failed: " . mysqli_error($conn));
         }else{
             if(mysqli_num_rows($carResult)>0 && mysqli_num_rows($pickLocResult)>0){
@@ -93,39 +93,39 @@
 
     <body>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-            <a class="navbar-brand mx-auto" href="welcomePage.php">Logo</a>
+            <a class="navbar-brand mx-3" href="welcomePage.php">Home</a>
             <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="listings.php">Browse our fleet</a>
                     </li>
                 </ul>
             </div>
-            <div class="mx-auto order-0">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            </div>
             <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Right</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
+                    <?php
+                        if (isset($_SESSION["user_id"]) && isset($_SESSION["fname"]) && isset($_SESSION["lname"])) {
+                            echo "
+                                <li class=\"nav-item dropdown\">
+                                    <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbaruserDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                                        Welcome, ".$_SESSION["fname"]." ".$_SESSION["lname"]."
+                                    </a>
+                                    <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
+                                        <a class=\"dropdown-item\" href=\"list-orders.php\">Check orders</a>
+                                        <div class=\"dropdown-divider\"></div>
+                                        <a class=\"dropdown-item\" href=\"logout.php\">Sign out</a>
+                                    </div>
+                                </li>";
+                        } else {
+                            echo "
+                                <li class=\"nav-item\">
+                                    <a class=\"nav-link\" href=\"sign-in.html\">Sign in</a>
+                                </li>
+                                <li class=\"nav-item\">
+                                    <a class=\"nav-link\" href=\"sign-up.html\">Sign up</a>
+                                </li>";
+                        }
+                    ?>
                 </ul>
             </div>
         </nav>
@@ -164,7 +164,7 @@
                                 <p class="font-weight-bold mb-0">Body</p>
                                 <p><?php echo "$carBody"?></p>
                                 <p class="font-weight-bold mb-0">MSRP</p>
-                                <p><?php echo "$carMSRP"?></p>
+                                <p>$<?php echo "$carMSRP"?></p>
                             </div>
                             <div class="col-3">
                                 <p class="font-weight-bold mb-0">Seats</p>

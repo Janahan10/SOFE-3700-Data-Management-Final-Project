@@ -70,16 +70,42 @@
     </head>
 
     <body>
-        <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
-            <a class="navbar-brand" href="welcomePage.html">Logo</a>
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-            </ul>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <a class="navbar-brand mx-3" href="welcomePage.php">Home</a>
+            <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="listings.php">Browse our fleet</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                <ul class="navbar-nav ml-auto">
+                    <?php
+                        if (isset($_SESSION["user_id"]) && isset($_SESSION["fname"]) && isset($_SESSION["lname"])) {
+                            echo "
+                                <li class=\"nav-item dropdown\">
+                                    <a class=\"nav-link dropdown-toggle\" href=\"#\" id=\"navbaruserDropdown\" role=\"button\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
+                                        Welcome, ".$_SESSION["fname"]." ".$_SESSION["lname"]."
+                                    </a>
+                                    <div class=\"dropdown-menu\" aria-labelledby=\"navbarDropdown\">
+                                        <a class=\"dropdown-item\" href=\"list-orders.php\">Check orders</a>
+                                        <div class=\"dropdown-divider\"></div>
+                                        <a class=\"dropdown-item\" href=\"logout.php\">Sign out</a>
+                                    </div>
+                                </li>";
+                        } else {
+                            echo "
+                                <li class=\"nav-item\">
+                                    <a class=\"nav-link\" href=\"sign-in.html\">Sign in</a>
+                                </li>
+                                <li class=\"nav-item\">
+                                    <a class=\"nav-link\" href=\"sign-up.html\">Sign up</a>
+                                </li>";
+                        }
+                    ?>
+                </ul>
+            </div>
         </nav>
 
         <div class="container" style="margin-top: 12vw;">
@@ -93,8 +119,8 @@
                             
                             echo "<div class=\"row\">";
                             echo "<div class=\"col-4 mt-5 text-center\"><a href=\"welcomePage.php\">Pick a location to rent</a></div>";
-                            echo "<div class=\"col-4 mt-5 text-center\"><a href=\"#\">Browse our fleet</a></div>";
-                            echo "<div class=\"col-4 mt-5 text-center\"><a href=\"test.php\">Check your orders</a></div>";
+                            echo "<div class=\"col-4 mt-5 text-center\"><a href=\"listings.php\">Browse our fleet</a></div>";
+                            echo "<div class=\"col-4 mt-5 text-center\"><a href=\"list-orders.php\">Check your orders</a></div>";
                             echo "</div>";
                         } else{
                             echo "<div class=\"row text-center\"><div class=\"col-12 text-center\"><h1>" . $error . "</h1></div></div>";
