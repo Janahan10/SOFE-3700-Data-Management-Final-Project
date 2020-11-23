@@ -57,7 +57,7 @@
         <!-- SCRIPTS -->
         <link rel="stylesheet" href="styles.css">
 
-        <title>Your Order</title>
+        <title>Your Orders</title>
     </head>
 
     <body>
@@ -101,7 +101,7 @@
 
         <?php
             // Get the car information
-            if ($car_ID) {
+            if (isset($car_ID)) {
                 // Make query and get results
                 $car_query="select year, make, model, color from car where ID=$car_ID;";
                 $car_result=mysqli_query($conn,$car_query);
@@ -128,7 +128,8 @@
             <div class="row justify-content-left">
                 <h1>Order #<?php echo $order_num?></h1>
             </div>
-            <form action="#" method="post">         
+            <form action="returned.php" method="post">  
+                <input type="number" class="form-control d-none" name="orderNo" value="<?php echo $order_num?>" readonly>       
                 <div class="accordian" id="orderDetails">
                     
                     <div class="card">
@@ -143,6 +144,7 @@
                             <div class="row pt-3 m-3 text-left justify-content-around">
                                 <div class="col-10">
                                     <p class="font-weight-bold"><?php echo "$carYear $carMake $carModel: $carColor"?></p>
+                                    <input type="number" class="form-control d-none" name="car_ID" value="<?php echo $car_ID?>" readonly>
                                 </div>
                             </div>
                         </div>
@@ -150,7 +152,7 @@
 
                     <?php
                         // Get pickup loc information
-                        if ($pickupLocID) {
+                        if (isset($pickupLocID)) {
                             // retrieve the pickup location
                             $retrievePick="select * from location where Loc_no='$pickupLocID';";
                             $pickLocResult=mysqli_query($conn,$retrievePick);
@@ -182,7 +184,7 @@
 
                     <?php
                         // Get drop-off loc information
-                        if ($dropLocID) {
+                        if (isset($dropLocID)) {
                             // retrieve the drop location
                             $retrieveDrop="select * from location where Loc_no='$dropLocID';";
                             $dropLocResult=mysqli_query($conn,$retrieveDrop);
@@ -207,6 +209,7 @@
                             <div class="row pt-3 m-1 text-left justify-content-around">
                                 <div class="col-10">
                                     <p class="font-weight-bold"><?php echo $dropLoc?></p>
+                                    <input type="number" class="form-control d-none" name="dropLocID" value="<?php echo $dropLocID?>" readonly>
                                 </div>
                             </div>
                         </div>
@@ -257,7 +260,7 @@
                         <button type="submit" class="btn btn-lg btn-primary">Return</button>
                     </div>
                     <div class="col-6 text-right">
-                        <a href="#"><p>Sign out</p></a>
+                        <a href="logout.php"><p>Sign out</p></a>
                     </div>
                 </div>
             </form>

@@ -1,0 +1,103 @@
+<?php
+
+    $server="localhost";
+    $user="admin";
+    $pass="password";
+    $dbname="car_rental";
+
+    //Create connection
+    $conn=mysqli_connect($server,$user,$pass,$dbname);
+
+    //check connection
+    if(!$conn){
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    // Start a session
+    session_start();
+
+    $error="";
+    $success="";
+
+    if (isset($_POST["orderNo"]) && isset($_POST["car_ID"]) && isset($_POST["dropLocID"])) {
+        // Get variables
+        $orderNo=$_POST["orderNo"];
+        $car_ID=$_POST["car_ID"];
+        $dropLocID=$_POST["dropLocID"];
+
+        // Make a query to delete the results
+        $delete="delete from order_details where orderNo=$orderNo;";
+        $delete_result=mysqli_query($conn, $delete);
+
+        // make a query to change the location that the car is stored in
+        $switch="update stored_in set loc_No=$dropLocID where car_ID=$car_ID;";
+        $switch_result=mysqli_query($conn, $switch);
+
+        if (!$switch_result && !$delete_result) {
+            $error="Unable to return your order";
+        } else {
+            $success="Thank you for renting with us";
+        }
+    }else {
+        $error="This didn't work at all";
+    }
+?>
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <!-- SCRIPTS -->
+        <link rel="stylesheet" href="styles.css">
+
+        <title>Order Return</title>
+    </head>
+
+    <body>
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
+            <a class="navbar-brand" href="welcomePage.html">Logo</a>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="container" style="margin-top: 12vw;">
+            <div class="row justify-content-center">
+                <div class="col-10">
+                    <?php
+                        // Check if there is a success or error message
+                        // Print appropriate page
+                        if($success){
+                            echo "<div class=\"row text-center\"><div class=\"col-12 text-center\"><h1>" . $success . "</h1></div></div>";
+                            
+                            echo "<div class=\"row justify-content-around\">";
+                            echo "<div class=\"col-4 mt-5 text-center\"><a href=\"listings.php\">Look at more vehicles</a></div>";
+                            echo "<div class=\"col-4 mt-5 text-center\"><a href=\"logout.php\">Sign out</a></div>";
+                            echo "</div>";
+                        } else{
+                            echo "<div class=\"row text-center\"><div class=\"col-12 text-center\"><h1>" . $error . "</h1></div></div>";
+
+                            echo "<div class=\"row\">";
+                            echo "<div class=\"col-6 mt-5 text-center\"><a href=\"list-orders.php\">Check your order again</a></div>";
+                            echo "<div class=\"col-6 mt-5 text-center\"><a href=\"logout.php\">Sign out</a></div>";
+                            echo "</div>";
+                        }
+                    ?>
+                </div> 
+            </div>
+             
+            
+        </div> 
+    </body>
+</html>
