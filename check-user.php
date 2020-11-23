@@ -93,8 +93,8 @@
                             
                             echo "<div class=\"row\">";
                             echo "<div class=\"col-4 mt-5 text-center\"><a href=\"welcomePage.php\">Pick a location to rent</a></div>";
-                            echo "<div class=\"col-4 mt-5 text-center\"><a href=\"#\">Browse our fleet</a></div>";
-                            echo "<div class=\"col-4 mt-5 text-center\"><a href=\"test.php\">Check your orders</a></div>";
+                            echo "<div class=\"col-4 mt-5 text-center\"><a href=\"listings.php\">Browse our fleet</a></div>";
+                            echo "<div class=\"col-4 mt-5 text-center\"><a href=\"list-orders.php\">Check your orders</a></div>";
                             echo "</div>";
                         } else{
                             echo "<div class=\"row text-center\"><div class=\"col-12 text-center\"><h1>" . $error . "</h1></div></div>";

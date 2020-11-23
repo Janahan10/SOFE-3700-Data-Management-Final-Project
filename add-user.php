@@ -27,7 +27,7 @@
     $password=$_POST['password'];
     $error="";
     $success="";
-    if($fname && $lname && $phone && $d_license && $bdate && $email && $username && $password){
+    if(isset($fname) && isset($lname) && isset($phone) && isset($d_license) && isset($bdate) && isset($email) && isset($username) && isset($password)){
         // Make query and get results
         $insert="insert into client (username, password, Fname, Lname, Bdate, phone_No, Email, D_license) values('$username','$password','$fname','$lname','$bdate','$phone','$email','$d_license');";
         $result=$conn->query($insert);
@@ -96,7 +96,7 @@
 
                             echo "<div class=\"row\">";
                             echo "<div class=\"col-6 mt-5 text-center\"><a href=\"welcomePage.php\">Pick a location to rent</a></div>";
-                            echo "<div class=\"col-6 mt-5 text-center\"><a href=\"test.php\">Browse our fleet</a></div>";
+                            echo "<div class=\"col-6 mt-5 text-center\"><a href=\"listings.php\">Browse our fleet</a></div>";
                             echo "</div>";
                         } else{
                             echo "<div class=\"row text-center\"><div class=\"col-12 text-center\"><h1>" . $error . "</h1></div></div>";

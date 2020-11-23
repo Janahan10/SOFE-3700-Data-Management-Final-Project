@@ -71,20 +71,39 @@
         if (isset($_SESSION["user_id"])) {
             // Get the user id
             $user_id=$_SESSION["user_id"];
+            
+            // Set return flag
+            $ord_success=true;
 
-            if ($user_id && $carID && $pickupLocID && $dropLocID & $pickDate && $dropDate && $totalCost) {
-                // Make query and get results
-                $insert="insert into order_details (client_ID, car_ID, pickup_date, drop_date, pickup_loc, drop_loc, total_cost) values('$user_id','$carID','$pickDate','$dropDate','$pickupLocID','$dropLocID','$totalCost');";
-                $add_result=$conn->query($insert);
+            // echo "console.log($ord_success)";
+            
+            if (isset($user_id)) {
+                // Check if the user has already placed and order
+                $check="select orderNo from order_details where client_ID=$user_id;";
+                $check_result=mysqli_query($conn, $check);
 
-                // Set return flag
-                $ord_success=true;
+                // echo "$check";
 
-                // Check results
-                if (!$add_result) {
-                    die("Query Failed: " . mysqli_error($conn));
+                if(mysqli_num_rows($check_result)<1){
+                    
+                    if (isset($carID) && isset($pickupLocID) && isset($dropLocID) & isset($pickDate) && isset($dropDate) && isset($totalCost)) {
+                        echo "$totalCost";
+                        // Make query and get results
+                        $insert="insert into order_details (client_ID, car_ID, pickup_date, drop_date, pickup_loc, drop_loc, total_cost) values('$user_id','$carID','$pickDate','$dropDate','$pickupLocID','$dropLocID','$totalCost');";
+                        $add_result=$conn->query($insert);
+
+                        echo "console.log($insert)";
+        
+                        // Check results
+                        if (!$add_result) {
+                            die("Query Failed: " . mysqli_error($conn));
+                        } else {
+                            return $ord_success;
+                        }
+                    }
                 } else {
-                    return $ord_success;
+                    
+                    return false;
                 }
             }
         }
@@ -163,7 +182,7 @@
                             echo "<div class=\"row text-center\"><div class=\"col-12 text-center\"><h1>" . $success . "</h1></div></div>";
                             
                             echo "<div class=\"row justify-content-center\">";
-                            echo "<div class=\"col-4 mt-5 text-center\"><a href=\"test.php\">Check your orders</a></div>";
+                            echo "<div class=\"col-4 mt-5 text-center\"><a href=\"list-orders.php\">Check your orders</a></div>";
                             echo "</div>";
                         } else{
                             echo "<div class=\"row text-center\"><div class=\"col-12 text-center\"><h1>" . $error . "</h1></div></div>";
@@ -171,7 +190,7 @@
                             echo "<div class=\"row\">";
                             echo "<div class=\"col-4 mt-5 text-center\"><a href=\"javascript:javascript:history.go(-1)\">Try again</a></div>";
                             echo "<div class=\"col-4 mt-5 text-center\"><a href=\"welcomePage.php\">Pick a location to rent</a></div>";
-                            echo "<div class=\"col-4 mt-5 text-center\"><a href=\"#\">Browse our fleet</a></div>";
+                            echo "<div class=\"col-4 mt-5 text-center\"><a href=\"listings.php\">Browse our fleet</a></div>";
                             echo "</div>";
                         }
                     ?>

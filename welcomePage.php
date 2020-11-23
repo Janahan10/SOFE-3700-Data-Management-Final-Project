@@ -11,6 +11,9 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
+    // Start a session
+    session_start();
+
     // Request for all the data about the locations
     $sql = "SELECT * FROM location";
     $result = $conn->query($sql);

@@ -22,7 +22,7 @@
     $dropDate=date_create($_GET["dropDate"]);
     $carID=$_GET["carID"];
 
-    if ($pickupLocID && $pickDate && $dropDate && $carID) {
+    if (isset($pickupLocID) && isset($pickDate) && isset($dropDate) && isset($carID)) {
         // Retrieve the car information
         $retrieveCar="select * from car where ID='$carID';";
         $carResult=mysqli_query($conn,$retrieveCar);
@@ -36,7 +36,7 @@
         $pickLocResult=mysqli_query($conn,$retrievePick);
 
         // Check results
-        if(!$carResult && !$locResult && !$pickLocResult){
+        if(!$carResult || !$locResult || !$pickLocResult){
             die("Query Failed: " . mysqli_error($conn));
         }else{
             if(mysqli_num_rows($carResult)>0 && mysqli_num_rows($pickLocResult)>0){

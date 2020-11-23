@@ -27,7 +27,7 @@
     
 
     // Check if the pickup loc, pick and drop date are set
-    if ($pickupLocID && $pickDate && $dropDate) {
+    if (isset($pickupLocID) && isset($pickDate) && isset($dropDate)) {
         // Make query and get cars that arent ordered during that time and are stored in that loc
         $query="select * from car where ID in (
             select o.car_ID
@@ -211,7 +211,7 @@
                                     <p class=\"card-text\">CA \$$carDayCost/day</p>
                                     ";
 
-                    if ($pickupLocID && $pickDate && $dropDate) {
+                    if (isset($pickupLocID) && isset($pickDate) && isset($dropDate)) {
                         echo "
                                     <a href=\"vehicle.php?pickupLocID=$pickupLocID&pickDate=$pickDate&dropDate=$dropDate&carID=$carID\" class=\"btn btn-primary center\" onclick=\"on()\">Rent</a>
                                 </div>
