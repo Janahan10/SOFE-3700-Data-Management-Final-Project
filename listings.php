@@ -85,6 +85,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="listings.php">Browse our fleet</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="aboutUs.php">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.php">Contacts</a>
+                    </li>
                 </ul>
             </div>
             <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">

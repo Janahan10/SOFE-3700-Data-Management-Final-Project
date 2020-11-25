@@ -96,22 +96,15 @@ nav{
 
 /* AboutUs page */
 
-*{
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-}
-
 .logo-section{
     overflow: hidden;
     text-align: center;
-    background: #696969;
     padding: 40px;
 }
 
 .logo-section h1{
     text-transform: uppercase;
-    margin-bottom: 60
+    margin-bottom: 60;
     color: white;
     font-size: 40px;
 }
@@ -124,15 +117,15 @@ nav{
 }
 
 .logo-section h1 {
-    font-size: 32px;
+    font-size: 60px;
     line-height: 10px;
-    color: #FFD700;
+    /* color: #FFD700; */
 }
 
 .logo-section h2 {
     margin-right: 375px;
     margin-left: 375px;
-    font-size: 10px;
+    font-size: 20px;
 }
 
 .icon {
@@ -143,7 +136,7 @@ nav{
 .icon a {
     display: inline-block;
     margin: 0 30px;
-    max-width: 200px;
+    max-width: 250px;
     height: 200px;
 }
 
@@ -174,28 +167,25 @@ nav{
     display: block;
     text-align: center;
     text-transform: uppercase;
-    font-size: 22px;
-    color: #FFD700;
+    font-size: 26px;
+    font-weight: bold;
+    /* color: #FFD700; */
 }
 
-.postid-36782 {
-    background: #696969
-}
 
 /* Contact page */
 
 .contact-title{
     overflow: hidden;
     text-align: center;
-    background: #696969;
     padding: 40px;
 }
 
 .contact-title h1{
     text-transform: uppercase;
-    margin-bottom: 60
+    margin-bottom: 60;
     color: white;
-    font-size: 40px;
+    font-size: 60px;
 }
 
 .contact-title {
@@ -204,28 +194,25 @@ nav{
     text-transform: uppercase;
 }
 
-.contact-title h1 {
-    font-size: 32px;
-    line-height: 10px;
-    color: #FFD700;
-}
-
 .contact-title h2 {
     margin-right: 375px;
     margin-left: 375px;
-    font-size: 10px;
+    font-size: 18px;
+}
+
+#contactPage .container{
+    width: 90%;
 }
 
 .contact-info{
     overflow: hidden;
     text-align: center;
-    background: #696969;
     padding: 40px;
 }
 
 .contact-info h1{
     text-transform: uppercase;
-    margin-bottom: 60
+    margin-bottom: 60;
     color: white;
     font-size: 40px;
 }
@@ -233,14 +220,13 @@ nav{
 .contact-info {
     margin-right: 20px;
     float: right;
-    margin-top: 100px;
+    margin-top: 00px;
     color: #ffffff;
     text-transform: uppercase;
 }
 
 .contact-info h1 {
-    font-size: 20px;
-    line-height: 10px;
+    font-size: 32px;
     color: #FFD700;
 }
 
@@ -251,13 +237,12 @@ nav{
 .office-hours{
     overflow: hidden;
     text-align: center;
-    background: #696969;
     padding: 40px;
 }
 
 .office-hours h1{
     text-transform: uppercase;
-    margin-bottom: 60
+    margin-bottom: 60;
     color: white;
     font-size: 40px;
 }
@@ -265,13 +250,13 @@ nav{
 .office-hours {
     margin-left: 20px;
     float: left;
-    margin-top: 100px;
+    margin-top: 00px;
     color: #ffffff;
     text-transform: uppercase;
 }
 
 .office-hours h1 {
-    font-size: 20px;
+    font-size: 32px;
     line-height: 10px;
     color: #FFD700;
 }
@@ -280,10 +265,10 @@ nav{
     font-size: 10px;
 }
 
-form {
+/* form {
     margin-top: 50px;
     display: inline-block;
-}
+} 
 
 .form-control {
     width: 600px;
@@ -316,4 +301,4 @@ form .submit {
 form .submit:hover {
     background-color: #FF4500;
     cursor: pointer;
-}
+} */
