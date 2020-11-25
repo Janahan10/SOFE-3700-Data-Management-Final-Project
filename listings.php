@@ -46,11 +46,11 @@
         } 
     } else {
         // Get information of all cars if rental info not specified
-        $query="select * from car;";
+        $query="select * from car order by year desc;";
         $car_result=mysqli_query($conn, $query);
 
         // Request for all the data about the locations
-        $sql = "SELECT * FROM location order by year desc";
+        $sql = "SELECT * FROM location";
         $result = $conn->query($sql);
 
         // Check results
