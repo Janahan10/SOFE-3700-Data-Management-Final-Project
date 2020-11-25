@@ -66,8 +66,8 @@
         <title>Your Orders</title>
     </head>
 
-    <body>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <body class="bg-dark">
+        <nav class="navbar navbar-expand-md navbar-dark">
             <a class="navbar-brand mx-3" href="welcomePage.php">Home</a>
             <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                 <ul class="navbar-nav mr-auto">
@@ -160,7 +160,7 @@
 
                     <div class=\"container my-4\">
                         <div class=\"row justify-content-left\">
-                            <h1>Order #$order_num</h1>
+                            <h1 class=\"display-4 text-light\">Order #$order_num</h1>
                         </div>
                         <form action=\"returned.php\" method=\"post\">  
                             <input type=\"number\" class=\"form-control d-none\" name=\"orderNo\" value=\"$order_num\" readonly>       
@@ -169,7 +169,7 @@
                                 <div class=\"card\">
                                     <div class=\"card-header\" id=\"carHead\">
                                         <h2>
-                                            <button class=\"btn btn-link\" type=\"button\" data-toggle=\"collapse\" data-target=\"#carInfo\" aria-expanded=\"true\" aria-controls=\"carInfo\">
+                                            <button class=\"btn btn-link text-dark\" type=\"button\" data-toggle=\"collapse\" data-target=\"#carInfo\" aria-expanded=\"true\" aria-controls=\"carInfo\">
                                                 Vehicle Information
                                             </button>
                                         </h2>
@@ -191,7 +191,7 @@
                                 <div class=\"card\">
                                     <div class=\"card-header\" id=\"pickupLocHead\">
                                         <h2>
-                                            <button class=\"btn btn-link\" type=\"button\" data-toggle=\"collapse\" data-target=\"#pickupLocInfo\" aria-expanded=\"true\" aria-controls=\"pickupLocInfo\">
+                                            <button class=\"btn btn-link text-dark\" type=\"button\" data-toggle=\"collapse\" data-target=\"#pickupLocInfo\" aria-expanded=\"true\" aria-controls=\"pickupLocInfo\">
                                                 Pickup Location
                                             </button>
                                         </h2>
@@ -212,7 +212,7 @@
                                 <div class=\"card\">
                                     <div class=\"card-header\" id=\"dropLocHead\">
                                         <h2>
-                                            <button class=\"btn btn-link\" type=\"button\" data-toggle=\"collapse\" data-target=\"#dropLocInfo\" aria-expanded=\"true\" aria-controls=\"dropLocInfo\">
+                                            <button class=\"btn btn-link text-dark\" type=\"button\" data-toggle=\"collapse\" data-target=\"#dropLocInfo\" aria-expanded=\"true\" aria-controls=\"dropLocInfo\">
                                                 Drop-off Location
                                             </button>
                                         </h2>
@@ -229,7 +229,7 @@
                                 <div class=\"card\">
                                     <div class=\"card-header\" id=\"pickDropDateHead\">
                                         <h2>
-                                            <button class=\"btn btn-link\" type=\"button\" data-toggle=\"collapse\" data-target=\"#pickDropDateInfo\" aria-expanded=\"true\" aria-controls=\"pickDropDateInfo\">
+                                            <button class=\"btn btn-link text-dark\" type=\"button\" data-toggle=\"collapse\" data-target=\"#pickDropDateInfo\" aria-expanded=\"true\" aria-controls=\"pickDropDateInfo\">
                                                 Pickup/Drop-off Date
                                             </button>
                                         </h2>
@@ -250,7 +250,7 @@
                                 <div class=\"card\">
                                     <div class=\"card-header\" id=\"costHead\">
                                         <h2>
-                                            <button class=\"btn btn-link\" type=\"button\" data-toggle=\"collapse\" data-target=\"#costInfo\" aria-expanded=\"true\" aria-controls=\"costInfo\">
+                                            <button class=\"btn btn-link text-dark\" type=\"button\" data-toggle=\"collapse\" data-target=\"#costInfo\" aria-expanded=\"true\" aria-controls=\"costInfo\">
                                                 Total Cost
                                             </button>
                                         </h2>
@@ -269,10 +269,10 @@
                             </div>
                             <div class=\"form-group row mt-5 justify-content-around\">
                                 <div class=\"col-3\">
-                                    <button type=\"submit\" class=\"btn btn-lg btn-primary\">Return</button>
+                                    <button type=\"submit\" class=\"btn btn-lg btn-primary bg-light border-0 text-dark\">Return</button>
                                 </div>
                                 <div class=\"col-6 text-right\">
-                                    <a href=\"logout.php\"><p>Sign out</p></a>
+                                    <a href=\"logout.php\"><p class=\"text-light\">Sign out</p></a>
                                 </div>
                             </div>
                         </form>
@@ -283,11 +283,11 @@
                 echo "<div class=\"container\" style=\"margin-top: 12vw;\">
                 <div class=\"row justify-content-center\">
                     <div class=\"col-10\">";
-                echo "<div class=\"row text-center\"><div class=\"col-12 text-center\"><h1>You have no existing orders</h1></div></div>";
+                echo "<div class=\"row text-center\"><div class=\"col-12 text-center\"><h1 class=\"display-3 text-light\">You have no existing orders</h1></div></div>";
                             
                 echo "<div class=\"row justify-content-around\">";
-                echo "<div class=\"col-4 mt-5 text-center\"><a href=\"listings.php\">Make an order</a></div>";
-                echo "<div class=\"col-4 mt-5 text-center\"><a href=\"logout.php\">Sign out</a></div>";
+                echo "<div class=\"col-4 mt-5 text-center\"><a href=\"listings.php\" class=\"redirect\">Make an order</a></div>";
+                echo "<div class=\"col-4 mt-5 text-center\"><a href=\"logout.php\" class=\"redirect\">Sign out</a></div>";
                 echo "</div>";
                 echo "</div></div></div>";
             }

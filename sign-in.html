@@ -14,8 +14,8 @@
         <title>Sign in</title>
     </head>
 
-    <body>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <body class="bg-dark">
+        <nav class="navbar navbar-expand-md navbar-dark">
             <a class="navbar-brand mx-3" href="welcomePage.php">Home</a>
             <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                 <ul class="navbar-nav mr-auto">
@@ -28,9 +28,9 @@
 
         <div class="container" style="margin-top: 12vw;">
             <div class="row justify-content-center">
-                <div class="col-4 p-5" style="border: 1px solid black; border-radius: 20px;">
+                <div class="col-4 p-5 bg-white" style="border: 1px solid black; border-radius: 20px;">
                     <div class="text-center">
-                        <h1>Sign in</h1>
+                        <h1  class="display-3">Sign in</h1>
                     </div>
                     <form action="check-user.php" method="post" class="needs-validation" novalidate>
                         <div class="form-group row">
@@ -49,7 +49,7 @@
                         </div>
                         <div class="form-group row">
                             <div class="col-4">
-                                <button type="submit" class="btn btn-primary">Log in</button>
+                                <button type="submit" class="btn btn-primary bg-dark text-light border-0">Log in</button>
                             </div>
                             <div class="col-8 text-right">
                                 <a href="sign-up.html">Create an account</a>

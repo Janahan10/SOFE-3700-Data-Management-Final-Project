@@ -91,8 +91,8 @@
         </style>
     </head>
 
-    <body>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <body class="bg-dark">
+        <nav class="navbar navbar-expand-md navbar-dark">
             <a class="navbar-brand mx-3" href="welcomePage.php">Home</a>
             <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                 <ul class="navbar-nav mr-auto">
@@ -135,13 +135,13 @@
         </div>
         <div class="container my-4">
             <div class="row justify-content-center">
-                <h1><?php echo "$carYear $carMake $carModel"?></h1>
+                <h1 class="display-3 text-light"><?php echo "$carYear $carMake $carModel"?></h1>
             </div>
             <div class="accordian" id="pageInfo">
                 <div class="card">
                     <div class="card-header" id="vehicleInfoHead">
                         <h2>
-                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#vehicleInfo" aria-expanded="true" aria-controls="vehicleInfo">
+                            <button class="btn btn-link  text-dark" type="button" data-toggle="collapse" data-target="#vehicleInfo" aria-expanded="true" aria-controls="vehicleInfo">
                                 Vehicle Information
                             </button>
                         </h2>
@@ -180,7 +180,7 @@
                     <div class="card">
                         <div class="card-header" id="rentalInfoHead">
                             <h2>
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#rentalInfo" aria-expanded="true" aria-controls="rentalInfo">
+                                <button class="btn btn-link text-dark" type="button" data-toggle="collapse" data-target="#rentalInfo" aria-expanded="true" aria-controls="rentalInfo">
                                     Rental Information
                                 </button>
                             </h2>
@@ -235,7 +235,7 @@
                         echo "<div class=\"card\">
                             <div class=\"card-header\" id=\"loginSignupHead\">
                                 <h2>
-                                    <button class=\"btn btn-link\" type=\"button\" data-toggle=\"collapse\" data-target=\"#loginSignup\" aria-expanded=\"false\" aria-controls=\"loginSignup\">
+                                    <button class=\"btn btn-link text-dark\" type=\"button\" data-toggle=\"collapse\" data-target=\"#loginSignup\" aria-expanded=\"false\" aria-controls=\"loginSignup\">
                                         Login/Sign up
                                     </button>
                                 </h2>
@@ -274,7 +274,7 @@
                     <div class="card">
                         <div class="card-header" id="paymentInfoHead">
                             <h2>
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#paymentInfo" aria-expanded="false" aria-controls="paymentInfo">
+                                <button class="btn btn-link text-dark" type="button" data-toggle="collapse" data-target="#paymentInfo" aria-expanded="false" aria-controls="paymentInfo">
                                     Payment Information
                                 </button>
                             </h2>
@@ -330,7 +330,7 @@
                             </div>
                             <div class="form-group row justify-content-center">
                                 <div class="col-10">
-                                    <button type="submit" class="btn btn-primary">Reserve Now</button>
+                                    <button type="submit" class="btn btn-primary bg-dark text-light border-0">Reserve Now</button>
                                 </div>
                             </div>
                         </div>

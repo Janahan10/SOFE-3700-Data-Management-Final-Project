@@ -39,8 +39,6 @@
     display: block;
 }
 
-
-
 .invalid-feedback {
     display: none;
     width: 100%;
@@ -70,28 +68,24 @@
 
 .top-buffer { margin-top:20px; }
 
-
-/* Vehicles page */
-
-.color-icon{
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    display: block;
-}
-
-.icon{
-    margin-right: 5px;
-}
-
-/* .offset-md-1 {
-    margin-right: 5%;
-} */
-
 .offset-md-left-1 {
     margin-left: 5%;
 }
 .row {
     margin-bottom: 2%;
 
+}
+
+/* body{
+    background-image: url(images/front.jpg);
+    background-position: center;
+    background-size: cover;
+} */
+
+nav{
+    background-color: black;
+}
+.redirect{
+    font-size: 2rem;
+    font-weight: bold;
 }

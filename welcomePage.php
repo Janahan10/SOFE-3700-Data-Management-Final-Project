@@ -32,11 +32,11 @@
         <!-- SCRIPTS -->
         <link rel="stylesheet" href="styles.css">
 
-        <title>Welcome to ###</title>
+        <title>Welcome to Canada Cars</title>
     </head>
 
-    <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <body style="background-image: url(images/front.jpg); background-position: center; background-size: cover;">
+    <nav class="navbar navbar-expand-md navbar-dark">
         <a class="navbar-brand mx-3" href="welcomePage.php">Home</a>
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav mr-auto">
@@ -73,14 +73,17 @@
             </ul>
         </div>
     </nav>
-    <div class="jumbotron">
-        <div class="text-center mx-3 my-3">
-            <h1>Book Your Rental Today</h1>
+    <div class="jumbotron mb-0" style="background-color:rgba(9, 0, 0, 0.5);">
+        <div class=" row justify-content-center mx-3 mt-3 mb-0">
+            <h1 class="display-2 text-light">CANADA </h1><h1 class="display-2 text-light font-weight-bold"> CARS</h1>
+        </div>
+        <div class=" row justify-content-center mx-3 mb-1 p-0">
+            <h2 class="text-light">Here is where your route begins</h2>
         </div>
         <form class="container px-3 py-3 needs-validation" action="listings.php" method="get" novalidate>
             <div class="form-group row">
                 <div class="col-md-12">
-                    <label for="inputPickupLoc" class="col-md-10 col-form-label">Pick a Location</label>
+                    <label for="inputPickupLoc" class="col-md-10 col-form-label text-light">Pick a Location</label>
                     <select id="inputPickupLoc" class="form-control" name="pickupLocID" required>
                         <option selected value="" disabled>Choose a location</option>
                         <?php
@@ -104,14 +107,14 @@
             <div class="form-group row">
                 <div class="col-md-3">
                     <input type="date" class="form-control" id="inputPickupDate" name="pickDate" required>
-                    <label for="inputPickupDate" class="col-md-12 col-form-label">Pickup Date</label>
+                    <label for="inputPickupDate" class="col-md-12 col-form-label text-light">Pickup Date</label>
                     <div class="invalid-feedback">
                         Provide a valid pickup date 
                     </div>
                 </div>
                 <div class="col-md-3">
                     <input type="date" class="form-control" id="inputDropDate" name="dropDate" required>
-                    <label for="inputDropDate" class="col-md-12 col-form-label">Drop-off Date</label>
+                    <label for="inputDropDate" class="col-md-12 col-form-label text-light">Drop-off Date</label>
                     <div class="invalid-feedback">
                         Provide a valid drop-off date 
                     </div>
@@ -119,7 +122,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary">Select your car</button>
+                    <button type="submit" class="btn btn-primary bg-light border-0 text-dark">Select your car</button>
                 </div>
             </div>
             <script>
@@ -142,6 +145,41 @@
                 })();
             </script>
         </form>
+    </div>
+
+    <div class="card-group">
+        <div class="card">
+        <img class="card-img-top" src="images/tripadvisor.png" alt="tripadvisor logo">
+        <div class="card-body">
+            <h5 class="card-title">5 Star Average Rating</h5>
+            <p class="card-text">5 star rating based on over 1,500 reviews from loyal and new customers alike.</p>
+
+        </div>
+        </div>
+        <div class="card">
+        <img class="card-img-top" src="images/google.jpg" alt="google logo">
+        <div class="card-body">
+            <h5 class="card-title">"Best customer service ever!"</h5>
+            <p class="card-text">These guys are some of the best in the car rental game. Definitely will be back!</p>
+
+        </div>
+        </div>
+        <div class="card">
+        <img class="card-img-top" src="images/facebook.png" alt="facebook logo">
+        <div class="card-body">
+            <h5 class="card-title"></h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+
+        </div>
+        </div>
+        <div class="card">
+            <img class="card-img-top" src="images/yelp.jpg" alt="yelp logo">
+            <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+
+            </div>
+        </div>
     </div>
         
     </body>

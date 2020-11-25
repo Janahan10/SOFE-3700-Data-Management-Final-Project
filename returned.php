@@ -59,8 +59,8 @@
         <title>Order Return</title>
     </head>
 
-    <body>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <body class="bg-dark">
+        <nav class="navbar navbar-expand-md navbar-dark">
             <a class="navbar-brand mx-3" href="welcomePage.php">Home</a>
             <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                 <ul class="navbar-nav mr-auto">
@@ -105,18 +105,18 @@
                         // Check if there is a success or error message
                         // Print appropriate page
                         if($success){
-                            echo "<div class=\"row text-center\"><div class=\"col-12 text-center\"><h1>" . $success . "</h1></div></div>";
+                            echo "<div class=\"row text-center\"><div class=\"col-12 text-center\"><h1 class=\"display-3 text-light\">" . $success . "</h1></div></div>";
                             
                             echo "<div class=\"row justify-content-around\">";
-                            echo "<div class=\"col-4 mt-5 text-center\"><a href=\"listings.php\">Look at more vehicles</a></div>";
-                            echo "<div class=\"col-4 mt-5 text-center\"><a href=\"logout.php\">Sign out</a></div>";
+                            echo "<div class=\"col-4 mt-5 text-center\"><a href=\"listings.php\" class=\"redirect\">Look at more vehicles</a></div>";
+                            echo "<div class=\"col-4 mt-5 text-center\"><a href=\"logout.php\" class=\"redirect\">Sign out</a></div>";
                             echo "</div>";
                         } else{
-                            echo "<div class=\"row text-center\"><div class=\"col-12 text-center\"><h1>" . $error . "</h1></div></div>";
+                            echo "<div class=\"row text-center\"><div class=\"col-12 text-center\"><h1 class=\"display-3 text-light\">" . $error . "</h1></div></div>";
 
                             echo "<div class=\"row\">";
-                            echo "<div class=\"col-6 mt-5 text-center\"><a href=\"list-orders.php\">Check your order again</a></div>";
-                            echo "<div class=\"col-6 mt-5 text-center\"><a href=\"logout.php\">Sign out</a></div>";
+                            echo "<div class=\"col-6 mt-5 text-center\"><a href=\"list-orders.php\" class=\"redirect\">Check your order again</a></div>";
+                            echo "<div class=\"col-6 mt-5 text-center\"><a href=\"logout.php\" class=\"redirect\">Sign out</a></div>";
                             echo "</div>";
                         }
                     ?>

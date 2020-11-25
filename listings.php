@@ -32,7 +32,8 @@
         $query="select * from car where ID in (
             select s.car_ID
             from order_details o, stored_in s
-            where o.car_ID=s.car_ID and o.pickup_loc=s.loc_No and s.loc_No=$pickupLocID and (o.pickup_date>='$dropDate' or o.drop_date<='$pickDate'));";
+            where o.car_ID=s.car_ID and o.pickup_loc=s.loc_No and s.loc_No=$pickupLocID and (o.pickup_date>='$dropDate' or o.drop_date<='$pickDate'))
+            order by year desc;";
         $car_result=mysqli_query($conn, $query);
 
         // Request for all the data about the locations
@@ -49,7 +50,7 @@
         $car_result=mysqli_query($conn, $query);
 
         // Request for all the data about the locations
-        $sql = "SELECT * FROM location";
+        $sql = "SELECT * FROM location order by year desc";
         $result = $conn->query($sql);
 
         // Check results
@@ -76,8 +77,8 @@
     <title>Listings</title>
 </head>
 
-<body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<body class="bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark">
             <a class="navbar-brand mx-3" href="welcomePage.php">Home</a>
             <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
                 <ul class="navbar-nav mr-auto">
@@ -115,7 +116,7 @@
             </div>
         </nav>
 
-    <div class="jumbotron p-1">
+    <div class="jumbotron p-1 mb-0 bg-light">
         <form class="cards-container px-5 pt-2 needs-validation" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="get" novalidate>
             <div class="form-group row justify-content-around">
                 <div class="col-md-6">
@@ -156,7 +157,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-md-2">
-                    <button type="submit" class="btn btn-primary">Search</button>
+                    <button type="submit" class="btn btn-primary bg-dark text-light border-0">Search</button>
                 </div>
             </div>
             <script>
@@ -180,6 +181,7 @@
             </script>
         </form>
     </div>
+            <hr class="my-0"/>
 
     <div class="cards-container">
         <?php 
@@ -199,7 +201,7 @@
                     $carID=$car["ID"];
 
                     if ($car_count == 0) {
-                        echo "<div class=\"row justify-content-center my-5\">";
+                        echo "<div class=\"row justify-content-center py-5\">";
                     }
 
                     echo "
@@ -213,7 +215,7 @@
 
                     if ($pickupLocID && $pickDate && $dropDate) {
                         echo "
-                                    <a href=\"vehicle.php?pickupLocID=$pickupLocID&pickDate=$pickDate&dropDate=$dropDate&carID=$carID\" class=\"btn btn-primary center\" onclick=\"on()\">Rent</a>
+                                    <a href=\"vehicle.php?pickupLocID=$pickupLocID&pickDate=$pickDate&dropDate=$dropDate&carID=$carID\" class=\"btn btn-primary center bg-dark text-light border-0\" onclick=\"on()\">Reserve</a>
                                 </div>
                             </div>
                         </div>";
