@@ -29,11 +29,15 @@
     // Check if the pickup loc, pick and drop date are set
     if ($pickupLocID && $pickDate && $dropDate) {
         // Make query and get cars that arent ordered during that time and are stored in that loc
-        $query="select * from car where ID in (
-            select s.car_ID
-            from order_details o, stored_in s
-            where o.car_ID=s.car_ID and o.pickup_loc=s.loc_No and s.loc_No=$pickupLocID and (o.pickup_date>='$dropDate' or o.drop_date<='$pickDate'))
-            order by year desc;";
+        $query="select * from car where ID in(
+                    select o.car_ID
+                    from order_details o
+                    where (o.pickup_date>='$dropDate' or o.drop_date<='$pickDate') and (o.pickup_loc=$pickupLocID or o.drop_loc=$pickupLocID)
+                    union
+                    select s.car_ID
+                    from stored_in s
+                    where s.loc_No=$pickupLocID)
+                order by year desc;";
         $car_result=mysqli_query($conn, $query);
 
         // Request for all the data about the locations
